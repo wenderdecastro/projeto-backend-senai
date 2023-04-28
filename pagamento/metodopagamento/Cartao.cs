@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Projeto_Backend_Senai
+namespace MetodoPagamento
 {
-    public class Credito
+    public class Cartao
     {
         
     }
