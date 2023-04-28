@@ -2,6 +2,8 @@
 using Metodo_Pagamento;
 using Modalidade_Pagamento;
 
+//teoricamente não é pra ter 2 classes abstratas instanciadas aqui
+
 Credito credit = new Credito();
 Debito debit = new Debito();
 Boleto bankSlip = new Boleto();
