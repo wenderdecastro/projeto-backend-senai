@@ -1,6 +1,6 @@
 ﻿using Projeto_Backend_Senai;
-using MetodoPagamento;
-using ModalidadePagamento;
+using Metodo_Pagamento;
+using Modalidade_Pagamento;
 
 Pagamento payment = new Pagamento();
 Cartao card = new Cartao();
