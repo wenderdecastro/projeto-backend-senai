@@ -7,6 +7,6 @@ namespace Projeto_Backend_Senai
 {
     public abstract class Pagamento
     {
-        
+            //teste
     }
 }
