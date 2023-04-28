@@ -12,8 +12,12 @@ namespace Projeto_Backend_Senai
         public float Valor;
 
         //metodos
-        public string Cancelar()
+        public string Cancelar(bool cancelar)
         {
+            if (cancelar)
+            {
+                return "Operação cancelada";
+            }
             return "";
         }
     }
