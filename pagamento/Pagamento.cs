@@ -5,8 +5,9 @@ using System.Threading.Tasks;
 
 namespace Projeto_Backend_Senai
 {
-    public abstract class Pagamento
+    public  class Pagamento
     {
-            //teste
+        public double Valor;
+       
     }
 }
