@@ -7,6 +7,18 @@ namespace Projeto_Backend_Senai
 {
     public class Pagamento
     {
-        //teste de commit
+        //propriedades
+        private DateTime Data = DateTime.Now;
+        public float Valor;
+
+        //metodos
+        public string Cancelar(bool cancelar)
+        {
+            if (cancelar)
+            {
+                return "Operação cancelada";
+            }
+            return "";
+        }
     }
 }
