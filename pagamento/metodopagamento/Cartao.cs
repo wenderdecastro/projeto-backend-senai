@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Metodo_Pagamento
 {
-    public class Cartao
+    public abstract class Cartao : Projeto_Backend_Senai.Pagamento
     {
         
     }

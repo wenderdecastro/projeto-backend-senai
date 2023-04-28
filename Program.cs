@@ -2,8 +2,6 @@
 using Metodo_Pagamento;
 using Modalidade_Pagamento;
 
-Pagamento payment = new Pagamento();
-Cartao card = new Cartao();
 Credito credit = new Credito();
 Debito debit = new Debito();
 Boleto bankSlip = new Boleto();

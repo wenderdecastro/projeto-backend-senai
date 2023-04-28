@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Metodo_Pagamento
 {
-    public class Boleto
+    public class Boleto : Projeto_Backend_Senai.Pagamento
     {
         
     }

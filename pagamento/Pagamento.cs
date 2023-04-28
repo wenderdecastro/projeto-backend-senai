@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Projeto_Backend_Senai
 {
-    public class Pagamento
+    public abstract class Pagamento
     {
         
     }
