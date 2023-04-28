@@ -7,6 +7,22 @@ namespace Metodo_Pagamento
 {
     public abstract class Cartao : Projeto_Backend_Senai.Pagamento
     {
-         //teste de commit
+
+        // Declaração dos atributos da Classe abstrata Cartao
+         public string Bandeira {get; set;}
+         public string NumeroCartao {get; set;}
+         public string Titular {get; set;}
+         public string Cvv {get; set;}
+
+        // Declaração dos métodos da Classe Abstrata
+         public void Pagar()
+         {
+
+         }
+
+         public void SalvarCartao()
+         {
+
+         }
     }
 }
