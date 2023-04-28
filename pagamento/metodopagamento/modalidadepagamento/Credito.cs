@@ -13,6 +13,9 @@ namespace Modalidade_Pagamento
 
         public float installments;
 
+        public override void Pagar(){
+
+        }
 
         public float Credit()
         {
@@ -33,15 +36,17 @@ namespace Modalidade_Pagamento
 
             switch (installments)
             {
-                case <=6:
+                case <= 6:
                     break;
-                    
-                    
-                case <=12:
+
+
+                case <= 12:
                     break;
                 default:
                     break;
             }
+
+
 
             return 0;
         }
