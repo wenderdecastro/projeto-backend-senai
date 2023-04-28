@@ -11,7 +11,7 @@ namespace Modalidade_Pagamento
     //      - valor do saldo em conta deve ser pré-definido
         private float saldo;
 
-        public float Depositar( float deposito)// Por causa da proteção do código, eu usei o if, dentro dele, determinei que Saldo = deposito, é importante determina um valor no "deposito" no "Program"
+        public float Depositar( float deposito)// Por causa da proteção do código, eu usei o if, dentro dele, determinei que Saldo = deposito, é importante determina um valor no "deposito" do "Program"
         {
             if( deposito > 0)
             {
