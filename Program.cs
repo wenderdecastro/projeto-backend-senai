@@ -7,6 +7,7 @@ using Modalidade_Pagamento;
 Credito Credit = new Credito();
 Debito Debit = new Debito();
 Boleto BankSlip = new Boleto();
+Pagamento Payment = new Pagamento();
 
 // Declaração de variáveis.
 
@@ -14,6 +15,7 @@ Boleto BankSlip = new Boleto();
 
 // Variável que armazena o valor consoleKey que será utilizado no menu.
 ConsoleKeyInfo opcao;
+ConsoleKeyInfo opcaoSair;
 
 // Título do programa.
 
@@ -71,12 +73,27 @@ do
             Console.WriteLine($"\n\nPagamento em Cartão de Débito selecionado. FUNCAO EM DESENVOLVIMENTO");
             break;
         case ConsoleKey.D4:
-            // Payment.Cancelar();
-            Console.WriteLine($"\n\nOperação Cancelada.");
+            Console.WriteLine($"\n\n{Payment.Cancelar(true)}");
             break;
         case ConsoleKey.D0:
-            Console.WriteLine($"\n\nAplicativo de console do PayProject fechado!");
-            Environment.Exit(0);
+            Console.WriteLine($"\n\nAo sair do sistema de pagamentos do Pay Project você cancelará a operação não finalizada.");
+
+            do
+            {
+                Console.WriteLine(@$"Deseja continuar?
+            (S) - Sim
+            (N) - Não
+            ");
+                opcaoSair = Console.ReadKey();
+
+                if (opcaoSair.Key == ConsoleKey.S)
+                {
+                    Console.WriteLine(Payment.Cancelar(true));
+                    Console.WriteLine($"Obrigado por utilizar o sistema de pagamentos do Pay Project!");
+                    Environment.Exit(0);
+                }
+
+            } while (opcaoSair.Key != ConsoleKey.N);
             break;
     }
 
