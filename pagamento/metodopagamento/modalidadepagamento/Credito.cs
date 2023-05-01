@@ -16,10 +16,10 @@ namespace Modalidade_Pagamento
 
         public float Credit()
         {
-            Console.WriteLine($"Você selecionou credito como pagamento");
+            Console.WriteLine($"\n\nPagamento em Cartão de Crédito selecionado");
 
-            Console.WriteLine($"Deseja parcelar o pagamento:? (s/n)");
-            string response = Console.ReadLine().ToLower();
+            Console.WriteLine(@$"Deseja parcelar o pagamento:? (s/n)");
+            string response = Console.ReadLine().ToLower(); // mete um readkey dog
 
             if (response == "s")
             {
