@@ -68,14 +68,15 @@ do
         {
             case ConsoleKey.D1:
                 Console.WriteLine($"\n\nPagamento em Boleto Bancário selecionado. FUNCAO EM DESENVOLVIMENTO");
-                // BankSlip.Registrar();
+                BankSlip.Registrar(Payment.Valor);
                 break;
             case ConsoleKey.D2:
                 Console.WriteLine($"\n\nPagamento em Cartão de Crédito selecionado. FUNCAO EM DESENVOLVIMENTO");
-                // Credit.Pagar();
+                Credit.Pagar(Payment.Valor);
                 break;
             case ConsoleKey.D3:
                 Console.WriteLine($"\n\nPagamento em Cartão de Débito selecionado. FUNCAO EM DESENVOLVIMENTO");
+                Debit.Pagar(Payment.Valor);
                 break;
             case ConsoleKey.D4:
                 Console.WriteLine($"\n\n{Payment.Cancelar(true)}");

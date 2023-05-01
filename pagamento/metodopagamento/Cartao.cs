@@ -15,7 +15,7 @@ namespace Metodo_Pagamento
          public string Cvv {get; set;}
 
         // Declaração dos métodos da Classe Abstrata
-         public void Pagar()
+         public void Pagar(float valorInput)
          {
 
          }

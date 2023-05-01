@@ -9,9 +9,9 @@ namespace Modalidade_Pagamento
     public class Credito : Cartao
     {
         //propriedade limite
-        public float limit { get; private set; } = 2000;
+        public float limite { get; private set; } = 2000;
 
-        public float installments;
+        public float parcelas;
 
 
         public float Credit()
@@ -24,14 +24,14 @@ namespace Modalidade_Pagamento
             if (response == "s")
             {
                 Console.WriteLine($"Em quantas parcelas? Sabendo que o maximo é 12x");
-                installments = float.Parse(Console.ReadLine());
+                parcelas = float.Parse(Console.ReadLine());
             }
             else
             {
                 Console.WriteLine($"Pagamento sem parcelas ");
             }
 
-            switch (installments)
+            switch (parcelas)
             {
                 case <=6:
                     break;
