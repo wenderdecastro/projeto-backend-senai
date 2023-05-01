@@ -41,11 +41,16 @@ Console.WriteLine(@$"
 Console.BackgroundColor = ConsoleColor.DarkGreen;
 
 Console.WriteLine("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$"); Console.ResetColor();
-
-// Laço de repetição para exibir o menu 
 do
 {
-    Console.WriteLine(@$"
+    Console.WriteLine($"Insira a quantia que deseja pagar:");
+
+    Payment.Valor = float.Parse(Console.ReadLine());
+    
+    // Laço de repetição para exibir o menu 
+    do
+    {
+        Console.WriteLine(@$"
     Pressione o numero correspondente à operação desejada: 
 
     1 - Pagamento em boleto
@@ -56,45 +61,46 @@ do
     0 - Sair do sistema
     ");
 
-    // Leitura da tecla pressionada
-    opcao = Console.ReadKey();
+        // Leitura da tecla pressionada
+        opcao = Console.ReadKey();
 
-    switch (opcao.Key)
-    {
-        case ConsoleKey.D1:
-            Console.WriteLine($"\n\nPagamento em Boleto Bancário selecionado. FUNCAO EM DESENVOLVIMENTO");
-            // BankSlip.Registrar();
-            break;
-        case ConsoleKey.D2:
-            Console.WriteLine($"\n\nPagamento em Cartão de Crédito selecionado. FUNCAO EM DESENVOLVIMENTO");
-            // Credit.Pagar();
-            break;
-        case ConsoleKey.D3:
-            Console.WriteLine($"\n\nPagamento em Cartão de Débito selecionado. FUNCAO EM DESENVOLVIMENTO");
-            break;
-        case ConsoleKey.D4:
-            Console.WriteLine($"\n\n{Payment.Cancelar(true)}");
-            break;
-        case ConsoleKey.D0:
-            Console.WriteLine($"\n\nAo sair do sistema de pagamentos do Pay Project você cancelará a operação não finalizada.");
+        switch (opcao.Key)
+        {
+            case ConsoleKey.D1:
+                Console.WriteLine($"\n\nPagamento em Boleto Bancário selecionado. FUNCAO EM DESENVOLVIMENTO");
+                // BankSlip.Registrar();
+                break;
+            case ConsoleKey.D2:
+                Console.WriteLine($"\n\nPagamento em Cartão de Crédito selecionado. FUNCAO EM DESENVOLVIMENTO");
+                // Credit.Pagar();
+                break;
+            case ConsoleKey.D3:
+                Console.WriteLine($"\n\nPagamento em Cartão de Débito selecionado. FUNCAO EM DESENVOLVIMENTO");
+                break;
+            case ConsoleKey.D4:
+                Console.WriteLine($"\n\n{Payment.Cancelar(true)}");
+                break;
+            case ConsoleKey.D0:
+                Console.WriteLine($"\n\nAo sair do sistema de pagamentos do Pay Project você cancelará a operação não finalizada.");
 
-            do
-            {
-                Console.WriteLine(@$"Deseja continuar?
-            (S) - Sim
-            (N) - Não
-            ");
-                opcaoSair = Console.ReadKey();
-
-                if (opcaoSair.Key == ConsoleKey.S)
+                do
                 {
-                    Console.WriteLine(Payment.Cancelar(true));
-                    Console.WriteLine($"Obrigado por utilizar o sistema de pagamentos do Pay Project!");
-                    Environment.Exit(0);
-                }
+                    Console.WriteLine(@$"Deseja continuar?
+                (S) - Sim
+                (N) - Não
+                ");
+                    opcaoSair = Console.ReadKey();
 
-            } while (opcaoSair.Key != ConsoleKey.N);
-            break;
-    }
+                    if (opcaoSair.Key == ConsoleKey.S)
+                    {
+                        Console.WriteLine(Payment.Cancelar(true));
+                        Console.WriteLine($"Obrigado por utilizar o sistema de pagamentos do Pay Project!");
+                        Environment.Exit(0);
+                    }
 
+                } while (opcaoSair.Key != ConsoleKey.N);
+                break;
+        }
+
+    } while (true);
 } while (true);
