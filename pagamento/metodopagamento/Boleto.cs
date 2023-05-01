@@ -12,7 +12,7 @@ namespace Metodo_Pagamento
         Pagamento pagamento_boleto = new Pagamento();
         Random CodigoDeBarras {get; set;}
 
-        public void Registrar(){    
+        public void Registrar(float valorInput){    
         
         //registrar o código do boleto
         

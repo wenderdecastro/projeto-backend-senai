@@ -9,9 +9,9 @@ namespace Modalidade_Pagamento
     public class Credito : Cartao
     {
         //propriedade limite
-        public float limit { get; private set; } = 2000;
+        public float limite { get; private set; } = 2000;
 
-        public float installments;
+        public float parcelas;
 
         public override void Pagar(){
 
@@ -19,22 +19,22 @@ namespace Modalidade_Pagamento
 
         public float Credit()
         {
-            Console.WriteLine($"Você selecionou credito como pagamento");
+            Console.WriteLine($"\n\nPagamento em Cartão de Crédito selecionado");
 
-            Console.WriteLine($"Deseja parcelar o pagamento:? (s/n)");
-            string response = Console.ReadLine().ToLower();
+            Console.WriteLine(@$"Deseja parcelar o pagamento:? (s/n)");
+            string response = Console.ReadLine().ToLower(); // mete um readkey dog
 
             if (response == "s")
             {
                 Console.WriteLine($"Em quantas parcelas? Sabendo que o maximo é 12x");
-                installments = float.Parse(Console.ReadLine());
+                parcelas = float.Parse(Console.ReadLine());
             }
             else
             {
                 Console.WriteLine($"Pagamento sem parcelas ");
             }
 
-            switch (installments)
+            switch (parcelas)
             {
                 case <= 6:
                     break;
