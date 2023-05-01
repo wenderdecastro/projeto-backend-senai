@@ -13,7 +13,7 @@ namespace Modalidade_Pagamento
 
         public float parcelas;
 
-        public override void Pagar(){
+        public override void Pagar(float valorInput){
 
         }
 
