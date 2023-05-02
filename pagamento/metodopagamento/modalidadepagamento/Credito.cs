@@ -21,7 +21,7 @@ namespace Modalidade_Pagamento
 
                 if (valorInput > Limited)
                 {
-                    tool.Escrever("Limite do cartão atingido");
+                    tool.Escrever("<+red>Limite do cartão estourado!</>");
                     break;
                 }
                 Console.WriteLine(@$"
