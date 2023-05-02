@@ -10,7 +10,7 @@ namespace Modalidade_Pagamento
     {
         //propriedade limite
         public float Limited { get; private set; } = 2000;
-        string optionCredit;
+        ConsoleKeyInfo optionCredit;
         public float installments;
         public float valueinstallments;
         public float interestvalue;
@@ -20,27 +20,27 @@ namespace Modalidade_Pagamento
             {
                 Console.WriteLine(@$"
             Selecione uma das opções abaixo:
-            '1' para pagamento a vista
-            '2'para pagamento parcelado
+            
+            (1) - Pagamento a vista
+            (2) - Pagamento parcelado
             ");
-                this.optionCredit = Console.ReadLine();
+                this.optionCredit = Console.ReadKey(true);
 
-                switch (optionCredit)
+                switch (optionCredit.Key)
                 {
-                    case "1":
+                    case ConsoleKey.D1:
                         Console.WriteLine($"Você selecionou pagamento a vista no cartão de credito.");
-
+                        Console.WriteLine($"Como já foi feito o cadastro do cartão o cartão, o valor será cobrado na proxima fatura.");
                         Console.WriteLine($"Pagamento efutuado!");
-                        Console.WriteLine($"Muito obrigado volte sempre!");
                         break;
 
-                    case "2":
+                    case ConsoleKey.D2:
                         Console.WriteLine($"Digite a quantidade de parcelas: (1 - 12x)");
                         this.installments = float.Parse(Console.ReadLine());
                         if (installments <= 6)
                         {
                             Console.WriteLine($"Foi aplicado juros de 5% no valor total!");
-                            interestvalue = (Valor * 1.05f);
+                            interestvalue = (valorInput * 1.05f);
                             valueinstallments = this.interestvalue / this.installments;
 
                             Console.WriteLine($"O valor a pagar total no final em {installments}x é: {interestvalue:F2}");
@@ -49,7 +49,7 @@ namespace Modalidade_Pagamento
                         else if (installments <= 12)
                         {
                             Console.WriteLine($"Foi aplicado juros de 8% no valor total!");
-                            interestvalue = (Valor * 1.08f);
+                            interestvalue = (valorInput * 1.08f);
                             valueinstallments = this.interestvalue / this.installments;
 
                             Console.WriteLine($"O valor a pagar total no final em {this.installments}x é: {this.interestvalue:F2}");
@@ -58,7 +58,7 @@ namespace Modalidade_Pagamento
                         else
                         {
                             Console.WriteLine($"Aqui não é casas bahia não pô");
-                            Console.WriteLine($"Tá duro dormex"); 
+                            Console.WriteLine($"Tá duro dorme"); 
                         }
                             break;
 
@@ -66,7 +66,7 @@ namespace Modalidade_Pagamento
                         Console.WriteLine($"Esta opção nao é valida tente novamente");
                         break;
                 }
-            } while (optionCredit != "1" && optionCredit != "2");
+            } while (optionCredit.Key != ConsoleKey.D1 && optionCredit.Key != ConsoleKey.D2);
         }
     }
 
