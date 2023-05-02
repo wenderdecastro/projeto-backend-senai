@@ -106,12 +106,12 @@ do
 
 <@>Pressione o numero correspondente à operação desejada: 
 
-<@><@>(1) - <+Green>Pagamento</> em boleto
-<@><@>(2) - <+Green>Pagamento</> em cartão de crédito
-<@><@>(3) - <+Green>Pagamento</> em cartão de débito
-<@><@>(4) - <+Red>Cancelar</> operação
+<@><@>[1] - <+Green>Pagamento</> em boleto
+<@><@>[2] - <+Green>Pagamento</> em cartão de crédito
+<@><@>[3] - <+Green>Pagamento</> em cartão de débito
+<@><@>[4] - <+Red>Cancelar</> operação
 
-<@>(0) - Sair do sistema
+<@>[0] - Sair do sistema
     ");
         tool.Escrever("\n<=Green><$></>"); // linha decorativa
 
@@ -134,14 +134,14 @@ do
                 ConcluirOperacao();
                 break;
             case ConsoleKey.D3:
-                Console.WriteLine($"\n\nPagamento em Cartão de Débito selecionado. FUNCAO EM DESENVOLVIMENTO");
+                Console.WriteLine($"\n\nPagamento em Cartão de Débito selecionado.");
                 // Debit.SalvarCartao();
                 Debit.Pagar(Payment.Valor);
-                if (true)
+                if (!Debit.SaldoInsuficiente)
                 {
-
+                    ConcluirOperacao();
                 }
-                else
+                else if (Debit.pagamentoEfetuado == true)
                 {
                     ConcluirOperacao();
                 }
@@ -160,8 +160,8 @@ do
 
 <@>Deseja continuar?
 
-<@><@><+Red>(S) - Sim</>
-<@><@>(N) - Não
+<@><@><+Red>[S] - Sim</>
+<@><@>[N] - Não
                 ");
                     fecharMenu = false;
                     opcaoSair = Console.ReadKey(true);

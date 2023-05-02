@@ -10,6 +10,9 @@ namespace Modalidade_Pagamento
     public class Debito : Cartao
     {
         Pagamento pay = new Pagamento();
+        Ferramentas tool = new Ferramentas();
+        public bool SaldoInsuficiente = false;
+        public bool pagamentoEfetuado = false;
         private float saldo = 500;
         private ConsoleKeyInfo opcaoConfirmar;
         public override void Pagar(float valorInput)
@@ -18,29 +21,35 @@ namespace Modalidade_Pagamento
 
             if (valorInput > saldo)
             {
-                Console.WriteLine($"Saldo insuficiente.");
+                tool.Escrever($"\n<+Red>Saldo insuficiente.</>\n");
+                tool.Escrever("\n<=Green><$></>");
+                SaldoInsuficiente = true;
             }
             else
             {
-                Console.WriteLine($"Você está preste a pagar: {valorInput}");
-                Console.WriteLine($"Ao confirmar esse pagamento seu saldo restante será de {operacao}");
-                
+                tool.Escrever($"\nVocê está preste a pagar: R$<+Green>{valorInput}</>\n");
+                tool.Escrever($"\nAo confirmar esse pagamento seu saldo restante será de R$<+Green>{operacao}</>");
+                SaldoInsuficiente = false;
                 do
                 {
-                    Console.WriteLine(@$"
-                Deseja confirmar o pagamento? 
-                (S) - Sim
-                (N) - Não
-                ");
-                opcaoConfirmar = Console.ReadKey();
+                    tool.Escrever(@$"
+
+<@>Deseja confirmar o pagamento? 
+
+<@><@>(S) - <+Green>Sim</>
+<@><@>(N) - <+Red>Não</> ");
+
+                opcaoConfirmar = Console.ReadKey(true);
                 
                 if(opcaoConfirmar.Key == ConsoleKey.S)
                 {
                     Console.WriteLine($"Pagamento efetuado no valor de {operacao}");
+                    pagamentoEfetuado = true;
                 }
                 else if(opcaoConfirmar.Key == ConsoleKey.N)
                 {
-                    pay.Cancelar(true);
+                    tool.Escrever("\n\nPagamento na modalidade Cartão de débito <+Red>não efetuada</>.");
+                    pagamentoEfetuado = false;
                 }
 
                 }
