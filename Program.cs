@@ -8,6 +8,7 @@ Credito Credit = new Credito();
 Debito Debit = new Debito();
 Boleto BankSlip = new Boleto();
 Pagamento Payment = new Pagamento();
+Ferramentas tool = new Ferramentas();
 
 // Declaração de variáveis.
 
@@ -20,38 +21,11 @@ ConsoleKeyInfo opcao;
 ConsoleKeyInfo opcaoSair;
 ConsoleKeyInfo opcaoNovaOperacao;
 
-// String para evitar a repetição de código
-string linhaDecorativa = "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$";
-
 // Declaração de funções
-
-
-// Função para inserir cores de maneira mais facil no console
-
-void Escrever(string msg)
-{
-    string[] seletor = msg.Split('<', '>');
-
-    ConsoleColor cor;
-
-    foreach (var texto in seletor)
-        if (texto.StartsWith("/"))
-            Console.ResetColor();
-        else if (texto.StartsWith("=") && Enum.TryParse(texto.Substring(1), out cor))
-            Console.BackgroundColor = cor;
-        else if (texto.StartsWith("+") && Enum.TryParse(texto.Substring(1), out cor))
-            Console.ForegroundColor = cor;
-        else if (texto.StartsWith("$"))
-            Console.Write(linhaDecorativa);
-        else if (texto.StartsWith("@"))
-            Console.Write($"    ");
-        else
-            Console.Write(texto);
-}
 
 void ConcluirOperacao()
 {
-    Escrever($"\n\n<@><@><+Green>Operação concluída.</>\n");
+    tool.Escrever($"\n\n<@><@><+Green>Operação concluída.</>\n");
     Console.WriteLine(@"
         Deseja realizar uma nova operação?
 
@@ -67,21 +41,21 @@ void ConcluirOperacao()
         }
         else if (opcaoNovaOperacao.Key == ConsoleKey.N)
         {
-            Escrever("\nObrigado por utilizar o sistema de pagamentos do <+Green>Pay Project</>!");
+            tool.Escrever("\nObrigado por utilizar o sistema de pagamentos do <+Green>Pay Project</>!");
 
-            Escrever("\n\n<=Green><$></>"); // linha decorativa
+            tool.Escrever("\n\n<=Green><$></>"); // linha decorativa
 
             Environment.Exit(0);
         }
     } while (opcaoNovaOperacao.Key != ConsoleKey.S && opcaoNovaOperacao.Key != ConsoleKey.N);
 
-    Escrever("\n<=Green><$></>");
+    tool.Escrever("\n<=Green><$></>");
 }
 // Título do programa.
 Console.WriteLine($"");
 
 // Mudar cor do fundo do console
-Escrever("<=Green><$></>"); // linha decorativa
+tool.Escrever("<=Green><$></>"); // linha decorativa
 
 // texto feito com ascii text converter para fins estéticos
 
@@ -100,23 +74,23 @@ Console.WriteLine(@$"
                        \______/                                 \______/                               
 ");
 
-Escrever("<=Green><$></>"); // linha decorativa
+tool.Escrever("<=Green><$></>"); // linha decorativa
 do
 {
     while (!inputValido)
     {
-        Escrever($"\n\n<@>Insira a quantia que deseja pagar: ");
-        Escrever($"<@>"); // forma de alinhar o input para fins estéticos
+        tool.Escrever($"\n\n<@>Insira a quantia que deseja pagar: ");
+        tool.Escrever($"<@>"); // forma de alinhar o input para fins estéticos
 
         string input = Console.ReadLine();
         if (float.TryParse(input, out Payment.Valor) && Payment.Valor > 0)
         {
-            Escrever($"\n<@><@><+Green>Valor aceito!</> Você está prestes a pagar R$<+Green>{Payment.Valor}</>.\n");
+            tool.Escrever($"\n<@><@><+Green>Valor aceito!</> Você está prestes a pagar R$<+Green>{Payment.Valor}</>.\n");
             inputValido = true;
         }
         else
         {
-            Escrever("\n<@><@><+Red>Valor Invalido!</> Insira um valor válido para prosseguir.");
+            tool.Escrever("\n<@><@><+Red>Valor Invalido!</> Insira um valor válido para prosseguir.");
             inputValido = false;
         }
     }
@@ -124,11 +98,11 @@ do
     inputValido = false;
 
     // Laço de repetição para exibir o menu 
-    Escrever("\n<=Green><$></>");  // linha decorativa
+    tool.Escrever("\n<=Green><$></>");  // linha decorativa
     do
     {
 
-        Escrever(@$"
+        tool.Escrever(@$"
 
 <@>Pressione o numero correspondente à operação desejada: 
 
@@ -139,7 +113,7 @@ do
 
 <@>(0) - Sair do sistema
     ");
-        Escrever("\n<=Green><$></>"); // linha decorativa
+        tool.Escrever("\n<=Green><$></>"); // linha decorativa
 
         // Leitura da tecla pressionada
         opcao = Console.ReadKey(true);
@@ -174,15 +148,15 @@ do
                 break;
             case ConsoleKey.D4:
                 fecharMenu = true;
-                Escrever($"\n\n<@><+Red>{Payment.Cancelar(true)}</>\n");
-                Escrever("\n<=Green><$></>");
+                tool.Escrever($"\n\n<@><+Red>{Payment.Cancelar(true)}</>\n");
+                tool.Escrever("\n<=Green><$></>");
                 break;
             case ConsoleKey.D0:
-                Escrever($"\n\n<@>Ao sair do sistema de pagamentos do Pay Project você cancelará a operação não finalizada e excluirá seus\ncartões salvos para compras futuras.");
+                tool.Escrever($"\n\n<@>Ao sair do sistema de pagamentos do Pay Project você cancelará a operação não finalizada e excluirá seus\ncartões salvos para compras futuras.");
 
                 do
                 {
-                    Escrever(@$"
+                    tool.Escrever(@$"
 
 <@>Deseja continuar?
 
@@ -194,17 +168,17 @@ do
 
                     if (opcaoSair.Key == ConsoleKey.S)
                     {
-                        Escrever($"\n<@><+Red>{Payment.Cancelar(true)}</>\n");
+                        tool.Escrever($"\n<@><+Red>{Payment.Cancelar(true)}</>\n");
 
-                        Escrever("\nObrigado por utilizar o sistema de pagamentos do <+Green>Pay Project</>!");
+                        tool.Escrever("\nObrigado por utilizar o sistema de pagamentos do <+Green>Pay Project</>!");
 
-                        Escrever("\n\n<=Green><$></>"); // linha decorativa
+                        tool.Escrever("\n\n<=Green><$></>"); // linha decorativa
 
                         Environment.Exit(0);
                     }
                     else if (opcaoSair.Key == ConsoleKey.N)
                     {
-                        Escrever("\n<=Green><$></>");
+                        tool.Escrever("\n<=Green><$></>");
                     }
 
                 } while (opcaoSair.Key != ConsoleKey.N);
