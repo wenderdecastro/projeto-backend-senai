@@ -6,8 +6,9 @@ using Projeto_Backend_Senai;
 
 namespace Metodo_Pagamento
 {
-    public class Boleto : Projeto_Backend_Senai.Pagamento
+    public class Boleto : Projeto_Backend_Senai.Pagamento 
     {
+        Ferramentas escreva = new Ferramentas();
         public bool escolhaPagamento;
         public double ValorPagamentoBoleto { get; set; }
 
@@ -29,25 +30,26 @@ namespace Metodo_Pagamento
             [1] - Para realizar o pagamento da fatura via boleto;
             [2] - Para voltar para o menu de escolha de pagamento; 
             ");
-                string escolhaMenu = Console.ReadLine();
+                ConsoleKeyInfo escolhaMenu = Console.ReadKey(true);
 
-                switch (escolhaMenu)
+                //colocando readKey
+                switch (escolhaMenu.Key) 
                 {
-                    case "1":
-
-                        Console.ForegroundColor = ConsoleColor.Green;
-                        Console.WriteLine($"Pagamento efetuado com sucesso! Obrigado por utilizar nosso programa!");
+                    case ConsoleKey.D1:
+//   Escrever("<+Green> iae </> quqoweruqwef ");
+                        // Console.ForegroundColor = ConsoleColor.Green;
+                        escreva.Escrever($"<+Green> Pagamento efetuado com sucesso! </> Obrigado por utilizar nosso programa!");
                         escolhaPagamento = true;
                         break;
-                    case "2":
+                    case ConsoleKey.D2:
 
-                        Console.ForegroundColor = ConsoleColor.Red;
-                        Console.WriteLine($"Voce cancelou a operação de pagamento em Boleto, até mais!");
+                        // Console.ForegroundColor = ConsoleColor.Red;
+                        escreva.Escrever($"<+Red> Voce cancelou a operação de pagamento em Boleto </>, até mais!");
                         escolhaPagamento = true;
                         break;
                     default:
 
-                        Console.WriteLine($"Opção inválida, digite um valor conforme o menu!");
+                        escreva.Escrever($"<+Red> Opção inválida, </> digite um valor conforme o menu!");
                         escolhaPagamento = false;
 
                         break;
