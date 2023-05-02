@@ -46,7 +46,22 @@ namespace Modalidade_Pagamento
                             Console.WriteLine($"O valor a pagar total no final em {installments}x é: {interestvalue:F2}");
                             Console.WriteLine($"O valor das prestações será: {valueinstallments:F2}");
                         }
-                        break;
+                        else if (installments <= 12)
+                        {
+                            Console.WriteLine($"Foi aplicado juros de 8% no valor total!");
+                            interestvalue = (Valor * 0.08f) + Valor;
+                            valueinstallments = interestvalue / installments;
+
+                            Console.WriteLine($"O valor a pagar total no final em {installments}x é: {interestvalue:F2}");
+                            Console.WriteLine($"O valor das prestações será: {valueinstallments:F2}");
+                        }
+                        else
+                        {
+                            Console.WriteLine($"Aqui não é casas bahia não pô");
+                            Console.WriteLine($"Tá duro dormex"); 
+                        }
+                            break;
+
                     default:
                         Console.WriteLine($"Esta opção nao é valida tente novamente");
                         break;
