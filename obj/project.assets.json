@@ -8,19 +8,19 @@
     "net7.0": []
   },
   "packageFolders": {
-    "C:\\Users\\55358961879\\.nuget\\packages\\": {}
+    "C:\\Users\\57267874800\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\55358961879\\Desktop\\Projeto-Backend-Senai\\Projeto-Backend-Senai.csproj",
+      "projectUniqueName": "C:\\Users\\57267874800\\Desktop\\coding\\Projeto-Backend-Senai\\Projeto-Backend-Senai.csproj",
       "projectName": "Projeto-Backend-Senai",
-      "projectPath": "C:\\Users\\55358961879\\Desktop\\Projeto-Backend-Senai\\Projeto-Backend-Senai.csproj",
-      "packagesPath": "C:\\Users\\55358961879\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\55358961879\\Desktop\\Projeto-Backend-Senai\\obj\\",
+      "projectPath": "C:\\Users\\57267874800\\Desktop\\coding\\Projeto-Backend-Senai\\Projeto-Backend-Senai.csproj",
+      "packagesPath": "C:\\Users\\57267874800\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\57267874800\\Desktop\\coding\\Projeto-Backend-Senai\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\55358961879\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\57267874800\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -70,7 +70,7 @@
       "code": "Undefined",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Problema ao ler o arquivo de cache C:\\Users\\55358961879\\Desktop\\Projeto-Backend-Senai\\obj\\project.nuget.cache: Invalid property identifier character: <. Path 'logs[0].warningLevel', line 12, position 0."
+      "message": "Problema ao ler o arquivo de cache C:\\Users\\57267874800\\Desktop\\coding\\Projeto-Backend-Senai\\obj\\project.nuget.cache: Invalid property identifier character: <. Path 'version', line 3, position 0."
     }
   ]
 }
