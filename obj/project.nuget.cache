@@ -1,15 +1,25 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "qTuYCCPaAAAaCYFSXpz1NHYDkNugqK1c9AsF3lvpcZUU3vKTLiG9S+gFKND6lYrdDtyfi7UDp+gT3QaxN4MIIg==",
   "success": true,
   "projectFilePath": "C:\\Users\\57267874800\\Desktop\\coding\\Projeto-Backend-Senai\\Projeto-Backend-Senai.csproj",
+=======
+  "dgSpecHash": "cYDB2aq72veeK5xY6jQvqzHb/d1fyA4zeLmis+/vhU1xmnB1NtKTih7wHJwnYkCX9KLWg5zJgEtbFCDW/G1T+g==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\45845444845\\Desktop\\Projeto-Backend-Senai\\Projeto-Backend-Senai.csproj",
+>>>>>>> 3262b5c7f950dccca226e65d0818f2b61eba3a1e
   "expectedPackageFiles": [],
   "logs": [
     {
       "code": "Undefined",
       "level": "Warning",
       "warningLevel": 1,
+<<<<<<< HEAD
       "message": "Problema ao ler o arquivo de cache C:\\Users\\57267874800\\Desktop\\coding\\Projeto-Backend-Senai\\obj\\project.nuget.cache: Invalid property identifier character: <. Path 'version', line 3, position 0."
+=======
+      "message": "Problema ao ler o arquivo de cache C:\\Users\\45845444845\\Desktop\\Projeto-Backend-Senai\\obj\\project.nuget.cache: Invalid property identifier character: <. Path 'version', line 3, position 0."
+>>>>>>> 3262b5c7f950dccca226e65d0818f2b61eba3a1e
     }
   ]
 }
