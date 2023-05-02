@@ -14,7 +14,7 @@ Pagamento Payment = new Pagamento();
 // Váriaveis para loops
 bool fecharMenu = false;
 bool inputValido = false;
-bool novaOperacao = false;
+
 // Variaveis que armazenam o valor consoleKey que será utilizado em inputs no menu.
 ConsoleKeyInfo opcao;
 ConsoleKeyInfo opcaoSair;
@@ -48,6 +48,35 @@ void Escrever(string msg)
         else
             Console.Write(texto);
 }
+
+void ConcluirOperacao()
+{
+    Escrever($"\n\n<@><@><+Green>Operação concluída.</>\n");
+    Console.WriteLine(@"
+        Deseja realizar uma nova operação?
+
+            (S) - Sim
+            (N) - Não ");
+    do
+    {
+        opcaoNovaOperacao = Console.ReadKey(true);
+
+        if (opcaoNovaOperacao.Key == ConsoleKey.S)
+        {
+            fecharMenu = true;
+        }
+        else if (opcaoNovaOperacao.Key == ConsoleKey.N)
+        {
+            Escrever("\nObrigado por utilizar o sistema de pagamentos do <+Green>Pay Project</>!");
+
+            Escrever("\n\n<=Green><$></>"); // linha decorativa
+
+            Environment.Exit(0);
+        }
+    } while (opcaoNovaOperacao.Key != ConsoleKey.S && opcaoNovaOperacao.Key != ConsoleKey.N);
+
+    Escrever("\n<=Green><$></>");
+}
 // Título do programa.
 Console.WriteLine($"");
 
@@ -80,7 +109,7 @@ do
         Escrever($"<@>"); // forma de alinhar o input para fins estéticos
 
         string input = Console.ReadLine();
-        if (float.TryParse(input, out Payment.Valor))
+        if (float.TryParse(input, out Payment.Valor) && Payment.Valor > 0)
         {
             Escrever($"\n<@><@><+Green>Valor aceito!</> Você está prestes a pagar R$<+Green>{Payment.Valor}</>.\n");
             inputValido = true;
@@ -103,10 +132,10 @@ do
 
 <@>Pressione o numero correspondente à operação desejada: 
 
-        (1) - <+Green>Pagamento</> em boleto
-        (2) - <+Green>Pagamento</> em cartão de crédito
-        (3) - <+Green>Pagamento</> em cartão de débito
-        (4) - <+Red>Cancelar</> operação
+<@><@>(1) - <+Green>Pagamento</> em boleto
+<@><@>(2) - <+Green>Pagamento</> em cartão de crédito
+<@><@>(3) - <+Green>Pagamento</> em cartão de débito
+<@><@>(4) - <+Red>Cancelar</> operação
 
 <@>(0) - Sair do sistema
     ");
@@ -122,61 +151,20 @@ do
                 BankSlip.Registrar(Payment.Valor);
                 Console.WriteLine($"\nO código de barras do boleto gerado é: {BankSlip.CodigoDeBarras}");
 
-                Escrever($"\n\n<@><@><+Green>Operação concluída.</>\n");
-                Console.WriteLine(@"
-        Deseja realizar uma nova operação?
-
-            (S) - Sim
-            (N) - Não ");
-                do
-                {
-                    opcaoNovaOperacao = Console.ReadKey(true);
-
-                    if (opcaoNovaOperacao.Key == ConsoleKey.S)
-                    {
-                        novaOperacao = true;
-                        fecharMenu = true;
-                    }
-                    else if (opcaoNovaOperacao.Key == ConsoleKey.N)
-                    {
-                        Escrever("\nObrigado por utilizar o sistema de pagamentos do <+Green>Pay Project</>!");
-
-                        Escrever("\n\n<=Green><$></>"); // linha decorativa
-
-                        Environment.Exit(0);
-                    }
-                } while (opcaoNovaOperacao.Key != ConsoleKey.S && opcaoNovaOperacao.Key != ConsoleKey.N);
-
-                Escrever("\n<=Green><$></>");
+                ConcluirOperacao();
                 break;
             case ConsoleKey.D2:
                 Credit.SalvarCartao();
                 Credit.Pagar(Payment.Valor);
 
-                // do
-                // {
-                //     Console.WriteLine(@$"
-                //     Você deseja salvar o cartão para compras futuras?
-                //     • (S) - Sim
-                //     • (N) - Não ");
-
-                //     opcaoSalvar = Console.ReadKey(true);
-
-                //     if (opcaoSalvar.Key == ConsoleKey.S)
-                //     {
-
-                //     }
-                //     else
-                //     {
-
-                //     }
-                // } while (opcaoSalvar.Key != ConsoleKey.N);
-
+                ConcluirOperacao();
                 break;
             case ConsoleKey.D3:
                 Console.WriteLine($"\n\nPagamento em Cartão de Débito selecionado. FUNCAO EM DESENVOLVIMENTO");
                 Debit.SalvarCartao();
                 Debit.Pagar(Payment.Valor);
+
+                ConcluirOperacao();
                 break;
             case ConsoleKey.D4:
                 fecharMenu = true;
@@ -190,16 +178,17 @@ do
                 {
                     Escrever(@$"
 
-    Deseja continuar?
+<@>Deseja continuar?
 
-        <+Red>(S) - Sim</>
-        (N) - Não
+<@><@><+Red>(S) - Sim</>
+<@><@>(N) - Não
                 ");
                     opcaoSair = Console.ReadKey(true);
 
                     if (opcaoSair.Key == ConsoleKey.S)
                     {
-                        Console.WriteLine("\n" + Payment.Cancelar(true));
+                        Escrever($"\n<@><+Red>{Payment.Cancelar(true)}</>\n");
+
                         Escrever("\nObrigado por utilizar o sistema de pagamentos do <+Green>Pay Project</>!");
 
                         Escrever("\n\n<=Green><$></>"); // linha decorativa
