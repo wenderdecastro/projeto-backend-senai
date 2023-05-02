@@ -18,6 +18,13 @@ namespace Modalidade_Pagamento
         {
             do
             {
+
+                if (valorInput > Limited)
+                {
+                    Console.WriteLine($"Tu usa nubank com 300 de limite amigão!! rsrs");
+                    Console.WriteLine($"Tente outro valor para pagar por gentileza!");
+                    break;
+                }
                 Console.WriteLine(@$"
             Selecione uma das opções abaixo:
             
@@ -30,7 +37,7 @@ namespace Modalidade_Pagamento
                 {
                     case ConsoleKey.D1:
                         Console.WriteLine($"Você selecionou pagamento a vista no cartão de credito.");
-                        Console.WriteLine($"Como já foi feito o cadastro do cartão o cartão, o valor será cobrado na proxima fatura.");
+                        Console.WriteLine($"Como já foi feito o cadastro do cartão, o valor será cobrado na proxima fatura.");
                         Console.WriteLine($"Pagamento efutuado!");
                         break;
 
