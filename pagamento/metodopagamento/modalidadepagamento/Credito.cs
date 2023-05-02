@@ -9,6 +9,52 @@ namespace Modalidade_Pagamento
     public class Credito : Cartao
     {
         //propriedade limite
-        public float limit { get; private set; } = 2000;
+        public float Limited { get; private set; } = 2000;
+        string optionCredit;
+        public float installments;
+        public float valueinstallments;
+        public float interestvalue;
+        public override void Pagar(float valorInput)
+        {
+            do
+            {
+                Console.WriteLine(@$"
+            Selecione uma das opções abaixo:
+            '1' para pagamento a vista
+            '2'para pagamento parcelado
+            ");
+                optionCredit = Console.ReadLine();
+
+                switch (optionCredit)
+                {
+                    case "1":
+                        Console.WriteLine($"Você selecionou pagamento a vista no cartão de credito.");
+
+                        Console.WriteLine($"Pagamento efutuado!");
+                        Console.WriteLine($"Muito obrigado volte sempre!");
+                        break;
+
+                    case "2":
+                        Console.WriteLine($"Digite a quantidade de parcelas: (1 - 12x)");
+                        installments = float.Parse(Console.ReadLine());
+                        if (installments <= 6)
+                        {
+                            Console.WriteLine($"Foi aplicado juros de 5% no valor total!");
+                            interestvalue = (Valor * 0.05f) + Valor;
+                            valueinstallments = interestvalue / installments;
+
+                            Console.WriteLine($"O valor a pagar total no final em {installments}x é: {interestvalue:F2}");
+                            Console.WriteLine($"O valor das prestações será: {valueinstallments:F2}");
+                        }
+                        break;
+                    default:
+                        Console.WriteLine($"Esta opção nao é valida tente novamente");
+                        break;
+                }
+            } while (optionCredit != "1" && optionCredit != "2");
+        }
     }
+
+
+
 }
