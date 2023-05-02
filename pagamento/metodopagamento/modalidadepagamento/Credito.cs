@@ -21,8 +21,7 @@ namespace Modalidade_Pagamento
 
                 if (valorInput > Limited)
                 {
-                    Console.WriteLine($"Tu usa nubank com 300 de limite amigão!! rsrs");
-                    Console.WriteLine($"Tente outro valor para pagar por gentileza!");
+                    tool.Escrever("Limite do cartão atingido");
                     break;
                 }
                 Console.WriteLine(@$"
