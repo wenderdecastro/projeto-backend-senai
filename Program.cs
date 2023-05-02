@@ -80,7 +80,7 @@ do
         Escrever($"<@>"); // forma de alinhar o input para fins estéticos
 
         string input = Console.ReadLine();
-        if (float.TryParse(input, out Payment.Valor))
+        if (float.TryParse(input, out Payment.Valor) && Payment.Valor > 0)
         {
             Escrever($"\n<@><@><+Green>Valor aceito!</> Você está prestes a pagar R$<+Green>{Payment.Valor}</>.\n");
             inputValido = true;
@@ -175,7 +175,7 @@ do
                 break;
             case ConsoleKey.D3:
                 Console.WriteLine($"\n\nPagamento em Cartão de Débito selecionado. FUNCAO EM DESENVOLVIMENTO");
-                Debit.SalvarCartao();
+                // Debit.SalvarCartao();
                 Debit.Pagar(Payment.Valor);
                 break;
             case ConsoleKey.D4:
