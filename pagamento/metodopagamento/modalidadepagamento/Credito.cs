@@ -23,7 +23,7 @@ namespace Modalidade_Pagamento
             '1' para pagamento a vista
             '2'para pagamento parcelado
             ");
-                optionCredit = Console.ReadLine();
+                this.optionCredit = Console.ReadLine();
 
                 switch (optionCredit)
                 {
@@ -36,12 +36,12 @@ namespace Modalidade_Pagamento
 
                     case "2":
                         Console.WriteLine($"Digite a quantidade de parcelas: (1 - 12x)");
-                        installments = float.Parse(Console.ReadLine());
+                        this.installments = float.Parse(Console.ReadLine());
                         if (installments <= 6)
                         {
                             Console.WriteLine($"Foi aplicado juros de 5% no valor total!");
                             interestvalue = (Valor * 0.05f) + Valor;
-                            valueinstallments = interestvalue / installments;
+                            valueinstallments = this.interestvalue / this.installments;
 
                             Console.WriteLine($"O valor a pagar total no final em {installments}x é: {interestvalue:F2}");
                             Console.WriteLine($"O valor das prestações será: {valueinstallments:F2}");
@@ -50,10 +50,10 @@ namespace Modalidade_Pagamento
                         {
                             Console.WriteLine($"Foi aplicado juros de 8% no valor total!");
                             interestvalue = (Valor * 0.08f) + Valor;
-                            valueinstallments = interestvalue / installments;
+                            valueinstallments = this.interestvalue / this.installments;
 
-                            Console.WriteLine($"O valor a pagar total no final em {installments}x é: {interestvalue:F2}");
-                            Console.WriteLine($"O valor das prestações será: {valueinstallments:F2}");
+                            Console.WriteLine($"O valor a pagar total no final em {this.installments}x é: {this.interestvalue:F2}");
+                            Console.WriteLine($"O valor das prestações será: {this.valueinstallments:F2}");
                         }
                         else
                         {
