@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Metodo_Pagamento;
+using Projeto_Backend_Senai;
 
 namespace Modalidade_Pagamento
 {
     public class Credito : Cartao
     {
+        Ferramentas tool = new Ferramentas();
         //propriedade limite
         public float Limited { get; private set; } = 2000;
         ConsoleKeyInfo optionCredit;
@@ -18,10 +20,9 @@ namespace Modalidade_Pagamento
         {
             do
             {
-
                 if (valorInput > Limited)
                 {
-                    tool.Escrever("<+red>Limite do cartão estourado!</>");
+                    tool.Escrever("<+Red>Limite do cartão estourado!</>");
                     break;
                 }
                 Console.WriteLine(@$"
@@ -75,7 +76,4 @@ namespace Modalidade_Pagamento
             } while (optionCredit.Key != ConsoleKey.D1 && optionCredit.Key != ConsoleKey.D2);
         }
     }
-
-
-
 }
