@@ -1,6 +1,7 @@
 {
   "format": 1,
   "restore": {
+<<<<<<< HEAD
     "C:\\Users\\42634177801\\Desktop\\Projeto-Backend-Senai\\Projeto-Backend-Senai.csproj": {}
   },
   "projects": {
@@ -15,6 +16,22 @@
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\42634177801\\AppData\\Roaming\\NuGet\\NuGet.Config",
+=======
+    "C:\\Users\\57267874800\\Desktop\\coding\\Projeto-Backend-Senai\\Projeto-Backend-Senai.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\57267874800\\Desktop\\coding\\Projeto-Backend-Senai\\Projeto-Backend-Senai.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\57267874800\\Desktop\\coding\\Projeto-Backend-Senai\\Projeto-Backend-Senai.csproj",
+        "projectName": "Projeto-Backend-Senai",
+        "projectPath": "C:\\Users\\57267874800\\Desktop\\coding\\Projeto-Backend-Senai\\Projeto-Backend-Senai.csproj",
+        "packagesPath": "C:\\Users\\57267874800\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\57267874800\\Desktop\\coding\\Projeto-Backend-Senai\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\57267874800\\AppData\\Roaming\\NuGet\\NuGet.Config",
+>>>>>>> b510b0e96d775e13320d8412710ee10545dc1e6e
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

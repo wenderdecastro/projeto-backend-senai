@@ -9,6 +9,7 @@ namespace Metodo_Pagamento
     public abstract class Cartao : Projeto_Backend_Senai.Pagamento
     {
 
+
         // Declaração dos atributos da Classe abstrata Cartao
         public string Bandeira { get; set; }
         public string NumeroCartao { get; set; }
@@ -35,7 +36,7 @@ namespace Metodo_Pagamento
 
 
             Console.WriteLine(@$"
-        Qual a bandeira do seu cartão?
+    Qual a bandeira do seu cartão?
             
         (1) - Visa
         (2) - MasterCard
@@ -49,23 +50,19 @@ namespace Metodo_Pagamento
             {
                 case ConsoleKey.D1:
                 Bandeira = "Visa";
-                Console.WriteLine($"A bandeira selecionada foi: {Bandeira}!");
                 
                 break;
 
                 case ConsoleKey.D2:
                 Bandeira = "MasterCard";
-                Console.WriteLine($"A bandeira selecionada foi: {Bandeira}!");
                 break;
 
                 case ConsoleKey.D3:
                 Bandeira = "Elo";
-                Console.WriteLine($"A bandeira selecionada foi: {Bandeira}!");
                 break;
 
                 case ConsoleKey.D4:
                 Bandeira = "HiperCard";
-                Console.WriteLine($"A bandeira selecionada foi: {Bandeira}!");
                 break;
                     
                 default:
