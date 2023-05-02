@@ -149,7 +149,6 @@ do
             case ConsoleKey.D1:
                 Console.WriteLine($"\n\nPagamento em Boleto Bancário selecionado.\n");
                 BankSlip.Registrar(Payment.Valor);
-                Console.WriteLine($"\nO código de barras do boleto gerado é: {BankSlip.CodigoDeBarras}");
 
                 ConcluirOperacao();
                 break;
