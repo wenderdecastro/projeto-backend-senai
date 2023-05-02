@@ -161,10 +161,16 @@ do
                 break;
             case ConsoleKey.D3:
                 Console.WriteLine($"\n\nPagamento em Cartão de Débito selecionado. FUNCAO EM DESENVOLVIMENTO");
-                Debit.SalvarCartao();
+                // Debit.SalvarCartao();
                 Debit.Pagar(Payment.Valor);
+                if (true)
+                {
 
-                ConcluirOperacao();
+                }
+                else
+                {
+                    ConcluirOperacao();
+                }
                 break;
             case ConsoleKey.D4:
                 fecharMenu = true;
@@ -183,6 +189,7 @@ do
 <@><@><+Red>(S) - Sim</>
 <@><@>(N) - Não
                 ");
+                    fecharMenu = false;
                     opcaoSair = Console.ReadKey(true);
 
                     if (opcaoSair.Key == ConsoleKey.S)
@@ -194,6 +201,10 @@ do
                         Escrever("\n\n<=Green><$></>"); // linha decorativa
 
                         Environment.Exit(0);
+                    }
+                    else if (opcaoSair.Key == ConsoleKey.N)
+                    {
+                        Escrever("\n<=Green><$></>");
                     }
 
                 } while (opcaoSair.Key != ConsoleKey.N);
