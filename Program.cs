@@ -129,7 +129,7 @@ do
                 ConcluirOperacao();
                 break;
             case ConsoleKey.D2:
-                Credit.SalvarCartao();
+                // Credit.SalvarCartao();
                 Credit.Pagar(Payment.Valor);
 
                 ConcluirOperacao();

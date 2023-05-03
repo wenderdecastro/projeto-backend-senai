@@ -16,6 +16,8 @@ namespace Modalidade_Pagamento
         public float installments;
         public float valueinstallments;
         public float interestvalue;
+
+
         public override void Pagar(float valorInput)
         {
             do
@@ -37,6 +39,7 @@ namespace Modalidade_Pagamento
                 {
                     case ConsoleKey.D1:
                         Console.WriteLine($"Você selecionou pagamento a vista no cartão de credito.");
+                        tool.Progresso();
                         Console.WriteLine($"Como já foi feito o cadastro do cartão, o valor será cobrado na proxima fatura.");
                         Console.WriteLine($"Pagamento efutuado!");
                         break;
@@ -64,10 +67,9 @@ namespace Modalidade_Pagamento
                         }
                         else
                         {
-                            Console.WriteLine($"Aqui não é casas bahia não pô");
-                            Console.WriteLine($"Tá duro dorme"); 
+                            Console.WriteLine($"Infelizmente não parcelamos mais do 12x");
                         }
-                            break;
+                        break;
 
                     default:
                         Console.WriteLine($"Esta opção nao é valida tente novamente");
