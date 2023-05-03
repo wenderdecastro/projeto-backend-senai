@@ -8,16 +8,11 @@
     "net7.0": []
   },
   "packageFolders": {
-<<<<<<< HEAD
     "C:\\Users\\57267874800\\.nuget\\packages\\": {}
-=======
-    "C:\\Users\\42634177801\\.nuget\\packages\\": {}
->>>>>>> 8b94b29425d59f914ba7d5a1db0e4c6d5236bba1
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-<<<<<<< HEAD
       "projectUniqueName": "C:\\Users\\57267874800\\Desktop\\coding\\Projeto-Backend-Senai\\Projeto-Backend-Senai.csproj",
       "projectName": "Projeto-Backend-Senai",
       "projectPath": "C:\\Users\\57267874800\\Desktop\\coding\\Projeto-Backend-Senai\\Projeto-Backend-Senai.csproj",
@@ -26,16 +21,6 @@
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\57267874800\\AppData\\Roaming\\NuGet\\NuGet.Config",
-=======
-      "projectUniqueName": "C:\\Users\\42634177801\\Desktop\\Projeto-Backend-Senai\\Projeto-Backend-Senai.csproj",
-      "projectName": "Projeto-Backend-Senai",
-      "projectPath": "C:\\Users\\42634177801\\Desktop\\Projeto-Backend-Senai\\Projeto-Backend-Senai.csproj",
-      "packagesPath": "C:\\Users\\42634177801\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\42634177801\\Desktop\\Projeto-Backend-Senai\\obj\\",
-      "projectStyle": "PackageReference",
-      "configFilePaths": [
-        "C:\\Users\\42634177801\\AppData\\Roaming\\NuGet\\NuGet.Config",
->>>>>>> 8b94b29425d59f914ba7d5a1db0e4c6d5236bba1
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -85,11 +70,7 @@
       "code": "Undefined",
       "level": "Warning",
       "warningLevel": 1,
-<<<<<<< HEAD
       "message": "Problema ao ler o arquivo de cache C:\\Users\\57267874800\\Desktop\\coding\\Projeto-Backend-Senai\\obj\\project.nuget.cache: Invalid property identifier character: <. Path 'version', line 3, position 0."
-=======
-      "message": "Problema ao ler o arquivo de cache C:\\Users\\42634177801\\Desktop\\Projeto-Backend-Senai\\obj\\project.nuget.cache: Invalid property identifier character: <. Path 'version', line 3, position 0."
->>>>>>> 8b94b29425d59f914ba7d5a1db0e4c6d5236bba1
     }
   ]
 }
