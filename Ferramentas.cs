@@ -31,5 +31,24 @@ namespace Projeto_Backend_Senai
                 else
                     Console.Write(texto);
         }
+        public void Progresso()
+        {
+            int progressoTotal = 100;
+
+            for (int progresso = 0; progresso <= progressoTotal; progresso++)
+            {
+                // Simula a execução da tarefa que leva algum tempo
+                Thread.Sleep(100);
+
+                // Calcula a porcentagem atual de progresso
+                int percentage = (int)((float)progresso / progressoTotal * 100);
+
+                // Exibe a barra de carregamento atual no console
+                Console.Write($"\r[{new string('#', progresso / 5)}{new string('-', progressoTotal / 5 - progresso / 5)}] {percentage}%");
+            }
+
+            // Pula uma linha após a conclusão da tarefa
+            Console.WriteLine();
+        }
     }
 }

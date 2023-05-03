@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Projeto_Backend_Senai;
+using System.Globalization;
 
 namespace Metodo_Pagamento
 {
@@ -11,7 +12,7 @@ namespace Metodo_Pagamento
         Ferramentas escreva = new Ferramentas();
         public bool escolhaPagamento;
         public double ValorPagamentoBoleto { get; set; }
-
+        private ConsoleKeyInfo escolhaMenu;
         public Random CodigoDeBarras = new Random();
 
         public void Registrar(float valorInput)
@@ -19,44 +20,40 @@ namespace Metodo_Pagamento
 
             ValorPagamentoBoleto = valorInput * 0.88;
 
-            escreva.Escrever($"O valor do pagamento em boleto tem um <+Yellow> desconto de 12% do valor total </>, portanto, o valor com o desconto ficou de: <+Green>{Math.Round(ValorPagamentoBoleto, 2).ToString("C")} reais </>");
+            escreva.Escrever($"\n<@>Ao realizar o pagamento com boleto, você recebe um <+Green>desconto de 12% do valor total</>, o valor final é de: <+Green>{Math.Round(ValorPagamentoBoleto, 2).ToString("C", CultureInfo.GetCultureInfo("pt-BR"))}</>.");
 
-            escreva.Escrever($"O valor do código de barras de sua fatura é: <=Red>{CodigoDeBarras.Next(1000)}90.57670 {CodigoDeBarras.Next(100000)}.{CodigoDeBarras.Next(100000)} 7 {CodigoDeBarras.Next(100000)}.{CodigoDeBarras.Next(100000)} </>");
+            escreva.Escrever($"\n\n<@>O código de barras do boleto é: <+Green>{CodigoDeBarras.Next(100000,999999)}.{CodigoDeBarras.Next(10000,99999)} {CodigoDeBarras.Next(100000,999999)}.{CodigoDeBarras.Next(100000,999999)} {CodigoDeBarras.Next(0,9)} {CodigoDeBarras.Next(000000,100000)}.{CodigoDeBarras.Next(000000,100000)} </>");
 
             do
             {
-                escreva.Escrever(@" 
-            Selecione:
-           <+Blue> [1] </> - Para realizar o pagamento da fatura via boleto;
-           <+Blue> [2] </> - Para voltar para o menu de escolha de pagamento; 
+                escreva.Escrever(@"
+
+<@>Deseja confirmar o pagamento? (S/N):
+
+<@><@><+Green>[1] - Sim </>
+<@><@><+Red>[2] - Não </>
             ");
-                ConsoleKeyInfo escolhaMenu = Console.ReadKey(true);
+
+                escolhaMenu = Console.ReadKey(true);
 
                 //colocando readKey
                 switch (escolhaMenu.Key)
                 {
-                    case ConsoleKey.D1:
-                       
-                        escreva.Escrever($"<+Green> Pagamento efetuado com sucesso! </> Obrigado por utilizar nosso programa!");
-                        escolhaPagamento = true;
-
+                    case ConsoleKey.S:
+                        escreva.Escrever($"\n<+Green>Pagamento efetuado com sucesso!</> Obrigado por utilizar nosso programa!");
                         break;
-                    case ConsoleKey.D2:
-
-                        escreva.Escrever($"<+Red> Voce cancelou a operação de pagamento em Boleto </>, até mais!");
-                        escolhaPagamento = true;
-
+                    case ConsoleKey.N:
+                        escreva.Escrever($"\n<+Red>Voce cancelou a operação de pagamento em Boleto</>, até mais!");
                         break;
                     default:
-
-                        escreva.Escrever($"<+Red> Opção inválida, </> digite um valor conforme o menu!");
-                        escolhaPagamento = false;
-
+                        escreva.Escrever("\n<=Green><$></>");
+                        escreva.Escrever($"\n\n<+Red> Opção inválida! </>Pressione uma opção conforme o menu!");
+                        escreva.Escrever("\n\n<=Red><$></>");
                         break;
                 }
 
 
-            } while (escolhaPagamento != true);
+            } while (escolhaMenu.Key != ConsoleKey.S && escolhaMenu.Key != ConsoleKey.N);
         }
     }
 }
