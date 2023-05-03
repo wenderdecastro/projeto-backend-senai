@@ -45,9 +45,6 @@ namespace Modalidade_Pagamento
                 default:
                     break;
             }
-
-
-
             return 0;
         }
     }
