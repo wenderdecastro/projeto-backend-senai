@@ -37,6 +37,7 @@ namespace Modalidade_Pagamento
             
 <@><@>[1] - Pagamento a vista
 <@><@>[2] - Pagamento parcelado
+
             ");
                 this.optionCredit = Console.ReadKey(true);
                 pagamentoEfetuado = false;
@@ -96,7 +97,9 @@ namespace Modalidade_Pagamento
                         break;
 
                     default:
-                        tool.Escrever($"Esta opção nao é valida tente novamente");
+                        tool.Escrever("\n<=Green><$></>");
+                        tool.Escrever($"\n\n<@><+Red>Esta opção nao é valida</>. Tente novamente.");
+                        tool.Escrever("\n\n<=Red><$></>\n");
                         break;
                 }
             } while (optionCredit.Key != ConsoleKey.D1 && optionCredit.Key != ConsoleKey.D2);
