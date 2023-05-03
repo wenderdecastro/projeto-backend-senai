@@ -4,12 +4,5 @@
   "success": true,
   "projectFilePath": "C:\\Users\\55358961879\\Desktop\\Projeto-Backend-Senai\\Projeto-Backend-Senai.csproj",
   "expectedPackageFiles": [],
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problema ao ler o arquivo de cache C:\\Users\\55358961879\\Desktop\\Projeto-Backend-Senai\\obj\\project.nuget.cache: Invalid property identifier character: <. Path 'logs[0].warningLevel', line 12, position 0."
-    }
-  ]
+  "logs": []
 }

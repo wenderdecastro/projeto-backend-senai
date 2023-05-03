@@ -1,6 +1,7 @@
 ﻿using Projeto_Backend_Senai;
 using Metodo_Pagamento;
 using Modalidade_Pagamento;
+using System.Globalization;
 
 //INSTANCIAÇÃO DE CLASSES: 
 
@@ -79,17 +80,18 @@ do
     while (!inputValido)
     {
         tool.Escrever($"\n\n<@>Insira a quantia que deseja pagar: ");
-        tool.Escrever($"<@>"); // forma de alinhar o input para fins estéticos
+        tool.Escrever($"<@>R$ <+Green>"); // forma de alinhar o input para fins estéticos
 
-        string input = Console.ReadLine();
+        string input = Console.ReadLine(); tool.Escrever($"</>");
         if (float.TryParse(input, out Payment.Valor) && Payment.Valor > 0)
         {
-            tool.Escrever($"\n<@><@><+Green>Valor aceito!</> Você está prestes a pagar R$<+Green>{Payment.Valor}</>.\n");
+            tool.Escrever($"\n<@><@><+Green>Valor aceito!</> Você está prestes a pagar <+Green>{Math.Round(Payment.Valor, 2).ToString("C", CultureInfo.GetCultureInfo("pt-BR"))}</>.\n");
             inputValido = true;
         }
         else
         {
-            tool.Escrever("\n<@><@><+Red>Valor Invalido!</> Insira um valor válido para prosseguir.");
+            tool.Escrever("\n<@><+Red>Valor Invalido!</> Insira um valor válido para prosseguir.");
+            tool.Escrever("\n\n<=Red><$></>");
             inputValido = false;
         }
     }
@@ -122,14 +124,13 @@ do
         switch (opcao.Key)
         {
             case ConsoleKey.D1:
-                Console.WriteLine($"\n\nPagamento em Boleto Bancário selecionado.\n");
+                tool.Escrever($"\n\n<@>Pagamento em Boleto Bancário selecionado.\n");
                 BankSlip.Registrar(Payment.Valor);
-                Console.WriteLine($"\nO código de barras do boleto gerado é: {BankSlip.CodigoDeBarras}");
-
+                
                 ConcluirOperacao();
                 break;
             case ConsoleKey.D2:
-                // Credit.SalvarCartao();
+                Credit.SalvarCartao();
                 Credit.Pagar(Payment.Valor);
 
                 ConcluirOperacao();
@@ -181,6 +182,11 @@ do
                     }
 
                 } while (opcaoSair.Key != ConsoleKey.N);
+                break;
+            default:
+                tool.Escrever($"\n\n<+Red> Opção inválida! </>Utilize as opções do menu! Pressione qualquer tecla para continuar...");
+                tool.Escrever("\n\n<=Red><$></>");
+                Console.ReadKey();
                 break;
         }
 
