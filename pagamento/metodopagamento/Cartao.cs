@@ -25,7 +25,7 @@ namespace Metodo_Pagamento
         {
             Console.WriteLine(@$"
             
-        MENU DE CADASTRO DE CARTÃO CRÉDITO/DÉBITO:");
+    MENU DE CADASTRO DE CARTÃO CRÉDITO/DÉBITO:");
 
             //Menu para o usuário visualizar e selecionar a informação que deseja adicionar sobre a bandeira.
             tool.Escrever(@"
@@ -138,7 +138,7 @@ namespace Metodo_Pagamento
 
             tool.Escrever($"\n<=Green><$></>");
 
-            tool.Escrever($"\n\n<@><@>CARTÃO DO(A) TITULAR {Titular.ToUpper()} SALVO COM <+Green>SUCESSO</>!");
+            tool.Escrever($"\n\n<@><@><@>CARTÃO DO(A) TITULAR {Titular.ToUpper()} SALVO COM <+Green>SUCESSO</>!");
 
             tool.Escrever($"\n\n<@><@><@>Bandeira do cartão: {Bandeira}");
             tool.Escrever($"\n<@><@><@>Final do cartão: {result}");

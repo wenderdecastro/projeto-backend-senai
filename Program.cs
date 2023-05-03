@@ -135,8 +135,10 @@ do
                     Credit.SalvarCartao();
                 }
                 Credit.Pagar(Payment.Valor);
-
-                ConcluirOperacao();
+                if (Credit.pagamentoEfetuado)
+                {
+                    ConcluirOperacao();
+                }
                 break;
             case ConsoleKey.D3:
                 tool.Escrever($"\n\n<@>Pagamento em Cartão de Débito selecionado.");
