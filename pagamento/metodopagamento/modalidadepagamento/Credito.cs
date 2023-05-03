@@ -40,8 +40,8 @@ namespace Modalidade_Pagamento
                     case ConsoleKey.D1:
                         Console.WriteLine($"Você selecionou pagamento a vista no cartão de credito.");
                         tool.Progresso();
-                        Console.WriteLine($"Como já foi feito o cadastro do cartão, o valor será cobrado na proxima fatura.");
                         Console.WriteLine($"Pagamento efutuado!");
+                        Console.WriteLine($"Como já foi feito o cadastro do cartão, o valor será cobrado na proxima fatura.");
                         break;
 
                     case ConsoleKey.D2:
@@ -52,18 +52,24 @@ namespace Modalidade_Pagamento
                             Console.WriteLine($"Foi aplicado juros de 5% no valor total!");
                             juros = (valorInput * 1.05f);
                             valorParcelas = this.juros / this.parcelas;
+                            tool.Progresso();
 
                             Console.WriteLine($"O valor a pagar total no final em {parcelas}x é: {juros:F2}");
                             Console.WriteLine($"O valor das prestações será: {valorParcelas:F2}");
+                            Console.WriteLine($"Pagamento efutuado!");
+                            Console.WriteLine($"Como já foi feito o cadastro do cartão, o valor será cobrado na proxima fatura.");
                         }
                         else if (parcelas <= 12)
                         {
                             Console.WriteLine($"Foi aplicado juros de 8% no valor total!");
                             juros = (valorInput * 1.08f);
                             valorParcelas = this.juros / this.parcelas;
+                            tool.Progresso();
 
                             Console.WriteLine($"O valor a pagar total no final em {this.parcelas}x é: {this.juros:F2}");
                             Console.WriteLine($"O valor das prestações será: {this.valorParcelas:F2}");
+                            Console.WriteLine($"Pagamento efutuado!");
+                            Console.WriteLine($"Como já foi feito o cadastro do cartão, o valor será cobrado na proxima fatura.");
                         }
                         else
                         {
