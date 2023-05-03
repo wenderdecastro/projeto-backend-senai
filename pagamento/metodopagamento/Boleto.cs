@@ -9,7 +9,7 @@ namespace Metodo_Pagamento
 {
     public class Boleto : Projeto_Backend_Senai.Pagamento
     {
-        Ferramentas escreva = new Ferramentas();
+        Ferramentas tool = new Ferramentas();
         public bool escolhaPagamento;
         public double ValorPagamentoBoleto { get; set; }
         private ConsoleKeyInfo escolhaMenu;
@@ -20,18 +20,19 @@ namespace Metodo_Pagamento
 
             ValorPagamentoBoleto = valorInput * 0.88;
 
-            escreva.Escrever($"\n<@>Ao realizar o pagamento com boleto, você recebe um <+Green>desconto de 12% do valor total</>, o valor final é de: <+Green>{Math.Round(ValorPagamentoBoleto, 2).ToString("C", CultureInfo.GetCultureInfo("pt-BR"))}</>.");
+            tool.Escrever($"\n<@>Ao realizar o pagamento com boleto, você recebe um <+Green>desconto de 12% do valor total</>, o valor final é de: <+Green>{Math.Round(ValorPagamentoBoleto, 2).ToString("C", CultureInfo.GetCultureInfo("pt-BR"))}</>.");
 
-            escreva.Escrever($"\n\n<@>O código de barras do boleto é: <+Green>{CodigoDeBarras.Next(100000,999999)}.{CodigoDeBarras.Next(10000,99999)} {CodigoDeBarras.Next(100000,999999)}.{CodigoDeBarras.Next(100000,999999)} {CodigoDeBarras.Next(0,9)} {CodigoDeBarras.Next(000000,100000)}.{CodigoDeBarras.Next(000000,100000)} </>");
+            tool.Escrever($"\n\n<@>O código de barras do boleto é: <+Green>{CodigoDeBarras.Next(100000, 999999)}.{CodigoDeBarras.Next(10000, 99999)} {CodigoDeBarras.Next(100000, 999999)}.{CodigoDeBarras.Next(100000, 999999)} {CodigoDeBarras.Next(0, 9)} {CodigoDeBarras.Next(000000, 100000)}.{CodigoDeBarras.Next(000000, 100000)} </>");
 
             do
             {
-                escreva.Escrever(@"
+                tool.Escrever(@"
 
 <@>Deseja confirmar o pagamento? (S/N):
 
-<@><@><+Green>[1] - Sim </>
-<@><@><+Red>[2] - Não </>
+<@><@><+Green>[S] - Sim </>
+<@><@><+Red>[N] - Não </>
+
             ");
 
                 escolhaMenu = Console.ReadKey(true);
@@ -40,15 +41,17 @@ namespace Metodo_Pagamento
                 switch (escolhaMenu.Key)
                 {
                     case ConsoleKey.S:
-                        escreva.Escrever($"\n<+Green>Pagamento efetuado com sucesso!</> Obrigado por utilizar nosso programa!");
+                        tool.Escrever("\n<=Green><$></>\n\n");
+                        tool.Progresso();
+                        tool.Escrever($"\n<@><+Green>Pagamento efetuado com sucesso!</> Obrigado por utilizar o Pay Project!");
                         break;
                     case ConsoleKey.N:
-                        escreva.Escrever($"\n<+Red>Voce cancelou a operação de pagamento em Boleto</>, até mais!");
+                        tool.Escrever($"\n<+Red>Voce cancelou a operação de pagamento em Boleto</>, até mais!");
                         break;
                     default:
-                        escreva.Escrever("\n<=Green><$></>");
-                        escreva.Escrever($"\n\n<+Red> Opção inválida! </>Pressione uma opção conforme o menu!");
-                        escreva.Escrever("\n\n<=Red><$></>");
+                        tool.Escrever("\n<=Green><$></>");
+                        tool.Escrever($"\n\n<+Red> Opção inválida! </>Pressione uma opção conforme o menu!");
+                        tool.Escrever("\n\n<=Red><$></>");
                         break;
                 }
 

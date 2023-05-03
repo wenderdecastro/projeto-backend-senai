@@ -43,8 +43,9 @@ namespace Modalidade_Pagamento
 
                     if (opcaoConfirmar.Key == ConsoleKey.S)
                     {
-                        tool.Escrever("\n\n<=Green><$></>");
-                        tool.Escrever($"\n\n<@>Pagamento <+Green>efetuado</> no valor de <+Green>{Math.Round(operacao, 2).ToString("C", CultureInfo.GetCultureInfo("pt-BR"))}</>");
+                        tool.Escrever("\n\n<=Green><$></>\n\n");
+                        tool.Progresso();
+                        tool.Escrever($"\n<@>Pagamento no valor de <+Green>{Math.Round(operacao, 2).ToString("C", CultureInfo.GetCultureInfo("pt-BR"))} efetuado com sucesso!</> Obrigado por utilizar o PayProject!");
                         pagamentoEfetuado = true;
                         saldo = operacao;
                     }

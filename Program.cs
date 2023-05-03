@@ -126,7 +126,7 @@ do
             case ConsoleKey.D1:
                 tool.Escrever($"\n\n<@>Pagamento em Boleto Bancário selecionado.\n");
                 BankSlip.Registrar(Payment.Valor);
-
+                
                 ConcluirOperacao();
                 break;
             case ConsoleKey.D2:
