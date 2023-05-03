@@ -8,4 +8,8 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Projeto_Backend_Senai
+<<<<<<< HEAD
 build_property.ProjectDir = C:\Users\56026708820\Desktop\Projeto-Backend-Senai\
+=======
+build_property.ProjectDir = C:\Users\57267874800\Desktop\coding\Projeto-Backend-Senai\
+>>>>>>> 0f70ec6df54623c8fec200120bd320bb5a3034aa

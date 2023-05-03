@@ -1,8 +1,14 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "r7VpaXr5nn8wJj859T7hKHwQdx9voWStTJIl4aEE0qY6wlJSjmySN90tn8b7aChPGOphGBya//fDSjCtgu3KUQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\56026708820\\Desktop\\Projeto-Backend-Senai\\Projeto-Backend-Senai.csproj",
+=======
+  "dgSpecHash": "qTuYCCPaAAAaCYFSXpz1NHYDkNugqK1c9AsF3lvpcZUU3vKTLiG9S+gFKND6lYrdDtyfi7UDp+gT3QaxN4MIIg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\57267874800\\Desktop\\coding\\Projeto-Backend-Senai\\Projeto-Backend-Senai.csproj",
+>>>>>>> 0f70ec6df54623c8fec200120bd320bb5a3034aa
   "expectedPackageFiles": [],
   "logs": []
 }
