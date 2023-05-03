@@ -126,8 +126,10 @@ do
             case ConsoleKey.D1:
                 tool.Escrever($"\n\n<@>Pagamento em Boleto Bancário selecionado.\n");
                 BankSlip.Registrar(Payment.Valor);
-
-                ConcluirOperacao();
+                if (BankSlip.pagamentoEfetuado)
+                {
+                    ConcluirOperacao();
+                }
                 break;
             case ConsoleKey.D2:
                 if (!Credit.cartaoCadastrado)
@@ -135,7 +137,7 @@ do
                     Credit.SalvarCartao();
                 }
                 Credit.Pagar(Payment.Valor);
-                if (Credit.pagamentoEfetuado)
+                if (Credit.pagamentoConfirmado)
                 {
                     ConcluirOperacao();
                 }
@@ -178,7 +180,7 @@ do
 
                         tool.Escrever("\n\n<=Green><$></>");
 
-                        tool.Escrever("\n\nObrigado por utilizar o sistema de pagamentos do <+Green>Pay Project</>!");
+                        tool.Escrever("\n\n<@>Obrigado por utilizar o sistema de pagamentos do <+Green>Pay Project</>!");
 
                         tool.Escrever("\n\n<=Green><$></>"); // linha decorativa
 

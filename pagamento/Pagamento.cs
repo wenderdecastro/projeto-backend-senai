@@ -8,9 +8,8 @@ namespace Projeto_Backend_Senai
     public class Pagamento
     {
         //propriedades
-        private DateTime Data = DateTime.Now;
+        public DateTime Data { get; private set; } = DateTime.Now;
         public float Valor;
-
         //metodos
         public string Cancelar(bool cancelar)
         {

@@ -15,6 +15,8 @@ namespace Metodo_Pagamento
         private ConsoleKeyInfo escolhaMenu;
         public Random CodigoDeBarras = new Random();
 
+        public bool pagamentoEfetuado = false;
+
         public void Registrar(float valorInput)
         {
 
@@ -22,7 +24,9 @@ namespace Metodo_Pagamento
 
             tool.Escrever($"\n<@>Ao realizar o pagamento com boleto, você recebe um <+Green>desconto de 12% do valor total</>, o valor final é de: <+Green>{Math.Round(ValorPagamentoBoleto, 2).ToString("C", CultureInfo.GetCultureInfo("pt-BR"))}</>.");
 
-            tool.Escrever($"\n\n<@>O código de barras do boleto é: <+Green>{CodigoDeBarras.Next(100000, 999999)}.{CodigoDeBarras.Next(10000, 99999)} {CodigoDeBarras.Next(100000, 999999)}.{CodigoDeBarras.Next(100000, 999999)} {CodigoDeBarras.Next(0, 9)} {CodigoDeBarras.Next(000000, 100000)}.{CodigoDeBarras.Next(000000, 100000)} </>");
+            tool.Escrever($"\n\n<@>O código de barras do boleto é: <+Green>{CodigoDeBarras.Next(000000, 999999)}.{CodigoDeBarras.Next(00000, 99999)} {CodigoDeBarras.Next(000000, 999999)}.{CodigoDeBarras.Next(000000, 999999)} {CodigoDeBarras.Next(0, 9)} {CodigoDeBarras.Next(000000, 100000)}.{CodigoDeBarras.Next(000000, 100000)} </>");
+
+            tool.Escrever($"\n\n<@>Boleto emitido em: {Data}. Vencimento em 3 dias úteis.");
 
             do
             {
@@ -31,30 +35,32 @@ namespace Metodo_Pagamento
 <@>Deseja confirmar o pagamento? (S/N):
 
 <@><@><+Green>[S] - Sim </>
-<@><@><+Red>[N] - Não </>
-
-            ");
+<@><@><+Red>[N] - Não </> ");
 
                 escolhaMenu = Console.ReadKey(true);
-
+                pagamentoEfetuado = false;
                 //colocando readKey
                 switch (escolhaMenu.Key)
                 {
                     case ConsoleKey.S:
-                        tool.Escrever("\n<=Green><$></>\n\n");
+                        tool.Escrever("\n\n<=Green><$></>\n\n");
                         tool.Progresso();
                         tool.Escrever($"\n<@><+Green>Pagamento efetuado com sucesso!</> Obrigado por utilizar o Pay Project!");
+                        pagamentoEfetuado = true;
                         break;
                     case ConsoleKey.N:
-                        tool.Escrever($"\n<+Red>Voce cancelou a operação de pagamento em Boleto</>, até mais!");
+                        tool.Escrever("\n\n<=Green><$></>\n\n");
+                        tool.Escrever($"<+Red>Voce cancelou a operação de pagamento em Boleto</>, até mais!");
+                        tool.Escrever("\n\n<=Red><$></>");
+                        pagamentoEfetuado = false;
                         break;
                     default:
-                        tool.Escrever("\n<=Green><$></>");
+                        tool.Escrever("\n\n<=Green><$></>");
                         tool.Escrever($"\n\n<+Red> Opção inválida! </>Pressione uma opção conforme o menu!");
                         tool.Escrever("\n\n<=Red><$></>");
+                        pagamentoEfetuado = false;
                         break;
                 }
-
 
             } while (escolhaMenu.Key != ConsoleKey.S && escolhaMenu.Key != ConsoleKey.N);
         }

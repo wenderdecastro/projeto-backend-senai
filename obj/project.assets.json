@@ -8,26 +8,24 @@
     "net7.0": []
   },
   "packageFolders": {
-    "C:\\Users\\57267874800\\.nuget\\packages\\": {}
+    "C:\\Users\\Clune\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\57267874800\\Desktop\\coding\\Projeto-Backend-Senai\\Projeto-Backend-Senai.csproj",
+      "projectUniqueName": "C:\\Users\\Clune\\projeto backend\\Projeto-Backend-Senai\\Projeto-Backend-Senai.csproj",
       "projectName": "Projeto-Backend-Senai",
-      "projectPath": "C:\\Users\\57267874800\\Desktop\\coding\\Projeto-Backend-Senai\\Projeto-Backend-Senai.csproj",
-      "packagesPath": "C:\\Users\\57267874800\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\57267874800\\Desktop\\coding\\Projeto-Backend-Senai\\obj\\",
+      "projectPath": "C:\\Users\\Clune\\projeto backend\\Projeto-Backend-Senai\\Projeto-Backend-Senai.csproj",
+      "packagesPath": "C:\\Users\\Clune\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Clune\\projeto backend\\Projeto-Backend-Senai\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\57267874800\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\Clune\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net7.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -61,7 +59,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -13,7 +13,7 @@ namespace Modalidade_Pagamento
         Pagamento pay = new Pagamento();
         Ferramentas tool = new Ferramentas();
         public bool pagamentoEfetuado = false;
-        private float saldo = 500;
+        public float saldo {get; private set;} = 500;
         private ConsoleKeyInfo opcaoConfirmar;
         public override void Pagar(float valorInput)
         {

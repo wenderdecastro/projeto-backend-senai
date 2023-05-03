@@ -12,9 +12,9 @@ namespace Metodo_Pagamento
         Ferramentas tool = new Ferramentas();
         // Declaração dos atributos da Classe abstrata Cartao
         public string Bandeira { get; set; }
-        public string NumeroCartao { get; set; }
-        public string Titular;
-        public string Cvv { get; set; }
+        public string NumeroCartao { private get; set; }
+        public string Titular { get; set; }
+        public string Cvv { private get; set; }
 
         public bool cartaoCadastrado = false;
 
@@ -142,6 +142,7 @@ namespace Metodo_Pagamento
 
             tool.Escrever($"\n\n<@><@><@>Bandeira do cartão: {Bandeira}");
             tool.Escrever($"\n<@><@><@>Final do cartão: {result}");
+            tool.Escrever($"\n\n<@><@><@>Data do cadastro: {Data}");
 
             tool.Escrever($"\n\n<=Green><$></>\n");
 
