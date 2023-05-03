@@ -137,7 +137,7 @@ do
                 break;
             case ConsoleKey.D3:
                 tool.Escrever($"\n\n<@>Pagamento em Cartão de Débito selecionado.");
-                // Debit.SalvarCartao();
+                Debit.SalvarCartao();
                 Debit.Pagar(Payment.Valor);
                 if (Debit.pagamentoEfetuado)
                 {
