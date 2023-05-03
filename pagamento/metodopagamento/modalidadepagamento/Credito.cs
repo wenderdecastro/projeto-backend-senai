@@ -13,9 +13,9 @@ namespace Modalidade_Pagamento
         //propriedade limite
         public float Limited { get; private set; } = 2000;
         ConsoleKeyInfo optionCredit;
-        public float installments;
-        public float valueinstallments;
-        public float interestvalue;
+        public float parcelas;
+        public float valorParcelas;
+        public float juros;
 
 
         public override void Pagar(float valorInput)
@@ -46,24 +46,24 @@ namespace Modalidade_Pagamento
 
                     case ConsoleKey.D2:
                         Console.WriteLine($"Digite a quantidade de parcelas: (1 - 12x)");
-                        this.installments = float.Parse(Console.ReadLine());
-                        if (installments <= 6)
+                        this.parcelas = float.Parse(Console.ReadLine());
+                        if (parcelas <= 6)
                         {
                             Console.WriteLine($"Foi aplicado juros de 5% no valor total!");
-                            interestvalue = (valorInput * 1.05f);
-                            valueinstallments = this.interestvalue / this.installments;
+                            juros = (valorInput * 1.05f);
+                            valorParcelas = this.juros / this.parcelas;
 
-                            Console.WriteLine($"O valor a pagar total no final em {installments}x é: {interestvalue:F2}");
-                            Console.WriteLine($"O valor das prestações será: {valueinstallments:F2}");
+                            Console.WriteLine($"O valor a pagar total no final em {parcelas}x é: {juros:F2}");
+                            Console.WriteLine($"O valor das prestações será: {valorParcelas:F2}");
                         }
-                        else if (installments <= 12)
+                        else if (parcelas <= 12)
                         {
                             Console.WriteLine($"Foi aplicado juros de 8% no valor total!");
-                            interestvalue = (valorInput * 1.08f);
-                            valueinstallments = this.interestvalue / this.installments;
+                            juros = (valorInput * 1.08f);
+                            valorParcelas = this.juros / this.parcelas;
 
-                            Console.WriteLine($"O valor a pagar total no final em {this.installments}x é: {this.interestvalue:F2}");
-                            Console.WriteLine($"O valor das prestações será: {this.valueinstallments:F2}");
+                            Console.WriteLine($"O valor a pagar total no final em {this.parcelas}x é: {this.juros:F2}");
+                            Console.WriteLine($"O valor das prestações será: {this.valorParcelas:F2}");
                         }
                         else
                         {
