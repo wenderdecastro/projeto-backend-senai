@@ -9,7 +9,6 @@ namespace Projeto_Backend_Senai
     {
         // String para evitar a repetição de código
         string linhaDecorativa = "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$";
-
         // Função para inserir cores de maneira mais facil no console
         public void Escrever(string msg)
         {

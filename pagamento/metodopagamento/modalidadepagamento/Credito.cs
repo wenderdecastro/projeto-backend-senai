@@ -10,7 +10,7 @@ namespace Modalidade_Pagamento
 {
     public class Credito : Cartao
     {
-        Ferramentas tool = new Ferramentas();
+        Ferramentas Tools = new Ferramentas();
         //propriedade Limite
         public float Limite { get; private set; } = 2000;
         ConsoleKeyInfo optionCredit;
@@ -31,7 +31,7 @@ namespace Modalidade_Pagamento
 
                 do
                 {
-                    tool.Escrever(@$"
+                    Tools.Escrever(@$"
 
 <@>Deseja confirmar o pagamento de <+Green>{Math.Round(valorInput, 2).ToString("C", CultureInfo.GetCultureInfo("pt-BR"))}</> em <+Green>{Parcelas}x</> de <+Green>{Math.Round(ValorParcelas, 2).ToString("C", CultureInfo.GetCultureInfo("pt-BR"))}</>? 
 
@@ -44,24 +44,24 @@ namespace Modalidade_Pagamento
 
                     if (opcaoConfirmar.Key == ConsoleKey.S)
                     {
-                        tool.Escrever("\n<=Green><$></>\n\n");
-                        tool.Escrever("<@>");
-                        tool.Progresso();
-                        tool.Escrever($"\n<@><+Green>Pagamento efetuado com sucesso!</> Obrigado por utilizar o Pay Project!");
+                        Tools.Escrever("\n<=Green><$></>\n\n");
+                        Tools.Escrever("<@>");
+                        Tools.Progresso();
+                        Tools.Escrever($"\n<@><+Green>Pagamento efetuado com sucesso!</> Obrigado por utilizar o Pay Project!");
 
-                        tool.Escrever($"\n\n<@>Como já foi feito o cadastro do cartão, o valor será cobrado na proxima fatura.");
+                        Tools.Escrever($"\n\n<@>Como já foi feito o cadastro do cartão, o valor será cobrado na proxima fatura.");
                         pagamentoConfirmado = true;
                     }
                     else if (opcaoConfirmar.Key == ConsoleKey.N)
                     {
-                        tool.Escrever("\n<@>Pagamento na modalidade Cartão de crédito <+Red>não efetuada</>.");
-                        tool.Escrever("\n\n<=Red><$></>");
+                        Tools.Escrever("\n<@>Pagamento na modalidade Cartão de crédito <+Red>não efetuada</>.");
+                        Tools.Escrever("\n\n<=Red><$></>");
                         pagamentoConfirmado = false;
                     }
                     else
                     {
-                        tool.Escrever("\n<@><+Red>Opção inválida</>, tecle uma opção válida.\n");
-                        tool.Escrever("\n<=Red><$></>");
+                        Tools.Escrever("\n<@><+Red>Opção inválida</>, tecle uma opção válida.\n");
+                        Tools.Escrever("\n<=Red><$></>");
                         pagamentoConfirmado = false;
                     }
                 }
@@ -72,9 +72,9 @@ namespace Modalidade_Pagamento
 
             if (valorInput > Limite)
             {
-                tool.Escrever($"<@>\n<+Red>Não há limite suficiente para efetuar essa compra.</> Limite atual: {Math.Round(Limite, 2).ToString("C", CultureInfo.GetCultureInfo("pt-BR"))}");
+                Tools.Escrever($"<@>\n<+Red>Não há limite suficiente para efetuar essa compra.</> Limite atual: {Math.Round(Limite, 2).ToString("C", CultureInfo.GetCultureInfo("pt-BR"))}");
                 pagamentoConfirmado = false;
-                tool.Escrever("\n\n<=Red><$></>\n");
+                Tools.Escrever("\n\n<=Red><$></>\n");
 
             }
             else
@@ -84,8 +84,8 @@ namespace Modalidade_Pagamento
 
                 while (!inputValido)
                 {
-                    tool.Escrever($"\n<@>Digite a quantidade de Parcelas: (1 - 12x)");
-                    tool.Escrever("\n\n<@><@>");
+                    Tools.Escrever($"\n<@>Digite a quantidade de Parcelas: (1 - 12x)");
+                    Tools.Escrever("\n\n<@><@>");
 
                     input = Console.ReadLine();
 
@@ -95,9 +95,9 @@ namespace Modalidade_Pagamento
                     }
                     else
                     {
-                        tool.Escrever("\n<=Green><$></>\n");
-                        tool.Escrever($"\n<@><+Red>Numero de parcelas inválido, tente novamente...</>");
-                        tool.Escrever("\n\n<=Red><$></>\n");
+                        Tools.Escrever("\n<=Green><$></>\n");
+                        Tools.Escrever($"\n<@><+Red>Numero de parcelas inválido, tente novamente...</>");
+                        Tools.Escrever("\n\n<=Red><$></>\n");
                     }
                 }
 
@@ -105,14 +105,14 @@ namespace Modalidade_Pagamento
                 {
 
                     ValorParcelas = this.Juros / this.Parcelas;
-                    tool.Escrever($"\n\nPagamento à vista, não será aplicado Juros.");
+                    Tools.Escrever($"\n\nPagamento à vista, não será aplicado Juros.");
                     ConfirmarPagamento();
 
 
                 }
                 else if (Parcelas <= 6)
                 {
-                    tool.Escrever($"\n<@>Ao parcelar em {Parcelas}x serão aplicados Juros de 5% no valor total!");
+                    Tools.Escrever($"\n<@>Ao parcelar em {Parcelas}x serão aplicados Juros de 5% no valor total!");
                     Juros = (valorInput * 1.05f);
                     ValorParcelas = this.Juros / this.Parcelas;
                     ConfirmarPagamento();
@@ -121,7 +121,7 @@ namespace Modalidade_Pagamento
                 }
                 else if (Parcelas <= 12)
                 {
-                    tool.Escrever($"\n<@>Ao parcelar em {Parcelas}x serão aplicados Juros de 8% no valor total!");
+                    Tools.Escrever($"\n<@>Ao parcelar em {Parcelas}x serão aplicados Juros de 8% no valor total!");
                     Juros = (valorInput * 1.08f);
                     ValorParcelas = this.Juros / this.Parcelas;
                     ConfirmarPagamento();

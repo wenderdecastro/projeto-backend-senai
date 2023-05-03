@@ -10,8 +10,8 @@ namespace Modalidade_Pagamento
 {
     public class Debito : Cartao
     {
-        Pagamento pay = new Pagamento();
-        Ferramentas tool = new Ferramentas();
+        Pagamento Pay = new Pagamento();
+        Ferramentas Tools = new Ferramentas();
         public bool pagamentoEfetuado = false;
         public float saldo {get; private set;} = 500;
         private ConsoleKeyInfo opcaoConfirmar;
@@ -22,38 +22,38 @@ namespace Modalidade_Pagamento
 
             if (valorInput > saldo)
             {
-                tool.Escrever($"\n\n<@><@><+Red>Saldo insuficiente.</> Saldo atual: <+Green>{Math.Round(saldo, 2).ToString("C", CultureInfo.GetCultureInfo("pt-BR"))}</>");
-                tool.Escrever("\n\n<=Red><$></>");
+                Tools.Escrever($"\n\n<@><@><+Red>Saldo insuficiente.</> Saldo atual: <+Green>{Math.Round(saldo, 2).ToString("C", CultureInfo.GetCultureInfo("pt-BR"))}</>");
+                Tools.Escrever("\n\n<=Red><$></>");
             }
             else
             {
-                tool.Escrever($"\n<@>Você está preste a pagar: <+Green>{Math.Round(valorInput, 2).ToString("C", CultureInfo.GetCultureInfo("pt-BR"))}</>\n");
-                tool.Escrever($"\n<@>Ao confirmar esse pagamento seu saldo restante será de <+Green>{Math.Round(operacao, 2).ToString("C", CultureInfo.GetCultureInfo("pt-BR"))}</>");
+                Tools.Escrever($"\n<@>Você está preste a pagar: <+Green>{Math.Round(valorInput, 2).ToString("C", CultureInfo.GetCultureInfo("pt-BR"))}</>\n");
+                Tools.Escrever($"\n<@>Ao confirmar esse pagamento seu saldo restante será de <+Green>{Math.Round(operacao, 2).ToString("C", CultureInfo.GetCultureInfo("pt-BR"))}</>");
 
                 do
                 {
-                    tool.Escrever(@$"
+                    Tools.Escrever(@$"
 
 <@>Deseja confirmar o pagamento? 
 
 <@><@><+Green>[S] - Sim</>
 <@><@><+Red>[N] - Não</>");
 
-                    opcaoConfirmar = Console.ReadKey(true);
+                    ConsoleKeyInfo opcaoConfirmar = Console.ReadKey(true);
 
                     if (opcaoConfirmar.Key == ConsoleKey.S)
                     {
-                        tool.Escrever("\n\n<=Green><$></>\n\n");
-                        tool.Progresso();
-                        tool.Escrever($"\n<@>Pagamento no valor de <+Green>{Math.Round(operacao, 2).ToString("C", CultureInfo.GetCultureInfo("pt-BR"))} efetuado com sucesso!</> Obrigado por utilizar o PayProject!");
+                        Tools.Escrever("\n\n<=Green><$></>\n\n");
+                        Tools.Progresso();
+                        Tools.Escrever($"\n<@>Pagamento no valor de <+Green>{Math.Round(operacao, 2).ToString("C", CultureInfo.GetCultureInfo("pt-BR"))} efetuado com sucesso!</> Obrigado por utilizar o PayProject!");
                         pagamentoEfetuado = true;
                         saldo = operacao;
                     }
                     else if (opcaoConfirmar.Key == ConsoleKey.N)
                     {
-                        tool.Escrever("\n\nPagamento na modalidade Cartão de débito <+Red>não efetuada</>.");
+                        Tools.Escrever("\n\nPagamento na modalidade Cartão de débito <+Red>não efetuada</>.");
 
-                        tool.Escrever("\n\n<=Red><$></>");
+                        Tools.Escrever("\n\n<=Red><$></>");
                         pagamentoEfetuado = false;
                     }
 
