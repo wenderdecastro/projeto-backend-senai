@@ -3,15 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Projeto_Backend_Senai;
+using System.Globalization;
 
 namespace Metodo_Pagamento
 {
-    public class Boleto : Projeto_Backend_Senai.Pagamento 
+    public class Boleto : Projeto_Backend_Senai.Pagamento
     {
-        Ferramentas escreva = new Ferramentas();
+        Ferramentas tool = new Ferramentas();
         public bool escolhaPagamento;
         public double ValorPagamentoBoleto { get; set; }
-
+        private ConsoleKeyInfo escolhaMenu;
         public Random CodigoDeBarras = new Random();
 
         public void Registrar(float valorInput)
@@ -19,44 +20,43 @@ namespace Metodo_Pagamento
 
             ValorPagamentoBoleto = valorInput * 0.88;
 
-            Console.WriteLine($"O valor do pagamento em boleto tem um desconto de 12% do valor total, portanto, o valor com o desconto ficou de: {Math.Round(ValorPagamentoBoleto, 2).ToString("C")} reais");
+            tool.Escrever($"\n<@>Ao realizar o pagamento com boleto, você recebe um <+Green>desconto de 12% do valor total</>, o valor final é de: <+Green>{Math.Round(ValorPagamentoBoleto, 2).ToString("C", CultureInfo.GetCultureInfo("pt-BR"))}</>.");
 
-            Console.WriteLine($"O valor do código de barras de sua fatura é: {CodigoDeBarras.Next(1000)}90.57670 {CodigoDeBarras.Next(100000)}.{CodigoDeBarras.Next(100000)} 7 {CodigoDeBarras.Next(100000)}.{CodigoDeBarras.Next(100000)}");
+            tool.Escrever($"\n\n<@>O código de barras do boleto é: <+Green>{CodigoDeBarras.Next(100000, 999999)}.{CodigoDeBarras.Next(10000, 99999)} {CodigoDeBarras.Next(100000, 999999)}.{CodigoDeBarras.Next(100000, 999999)} {CodigoDeBarras.Next(0, 9)} {CodigoDeBarras.Next(000000, 100000)}.{CodigoDeBarras.Next(000000, 100000)} </>");
 
             do
             {
-                Console.WriteLine(@$" 
-            Selecione:
-            [1] - Para realizar o pagamento da fatura via boleto;
-            [2] - Para voltar para o menu de escolha de pagamento; 
+                tool.Escrever(@"
+
+<@>Deseja confirmar o pagamento? (S/N):
+
+<@><@><+Green>[S] - Sim </>
+<@><@><+Red>[N] - Não </>
+
             ");
-                ConsoleKeyInfo escolhaMenu = Console.ReadKey(true);
+
+                escolhaMenu = Console.ReadKey(true);
 
                 //colocando readKey
-                switch (escolhaMenu.Key) 
+                switch (escolhaMenu.Key)
                 {
-                    case ConsoleKey.D1:
-//   Escrever("<+Green> iae </> quqoweruqwef ");
-                        // Console.ForegroundColor = ConsoleColor.Green;
-                        escreva.Escrever($"<+Green> Pagamento efetuado com sucesso! </> Obrigado por utilizar nosso programa!");
-                        escolhaPagamento = true;
+                    case ConsoleKey.S:
+                        tool.Escrever("\n<=Green><$></>\n\n");
+                        tool.Progresso();
+                        tool.Escrever($"\n<@><+Green>Pagamento efetuado com sucesso!</> Obrigado por utilizar o Pay Project!");
                         break;
-                    case ConsoleKey.D2:
-
-                        // Console.ForegroundColor = ConsoleColor.Red;
-                        escreva.Escrever($"<+Red> Voce cancelou a operação de pagamento em Boleto </>, até mais!");
-                        escolhaPagamento = true;
+                    case ConsoleKey.N:
+                        tool.Escrever($"\n<+Red>Voce cancelou a operação de pagamento em Boleto</>, até mais!");
                         break;
                     default:
-
-                        escreva.Escrever($"<+Red> Opção inválida, </> digite um valor conforme o menu!");
-                        escolhaPagamento = false;
-
+                        tool.Escrever("\n<=Green><$></>");
+                        tool.Escrever($"\n\n<+Red> Opção inválida! </>Pressione uma opção conforme o menu!");
+                        tool.Escrever("\n\n<=Red><$></>");
                         break;
                 }
 
 
-            } while (escolhaPagamento != true);
+            } while (escolhaMenu.Key != ConsoleKey.S && escolhaMenu.Key != ConsoleKey.N);
         }
     }
 }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Metodo_Pagamento;
 using Projeto_Backend_Senai;
+using System.Globalization;
 
 namespace Modalidade_Pagamento
 {
@@ -11,63 +12,54 @@ namespace Modalidade_Pagamento
     {
         Pagamento pay = new Pagamento();
         Ferramentas tool = new Ferramentas();
-        public bool SaldoInsuficiente = false;
         public bool pagamentoEfetuado = false;
         private float saldo = 500;
         private ConsoleKeyInfo opcaoConfirmar;
         public override void Pagar(float valorInput)
         {
             float operacao = saldo - valorInput;
+            pagamentoEfetuado = false;
 
             if (valorInput > saldo)
             {
-                tool.Escrever($"\n<+Red>Saldo insuficiente.</>\n");
-                tool.Escrever("\n<=Green><$></>");
-                SaldoInsuficiente = true;
+                tool.Escrever($"\n\n<@><@><+Red>Saldo insuficiente.</> Saldo atual: <+Green>{Math.Round(saldo, 2).ToString("C", CultureInfo.GetCultureInfo("pt-BR"))}</>");
+                tool.Escrever("\n\n<=Red><$></>");
             }
             else
             {
-                tool.Escrever($"\nVocê está preste a pagar: R$<+Green>{valorInput}</>\n");
-                tool.Escrever($"\nAo confirmar esse pagamento seu saldo restante será de R$<+Green>{operacao}</>");
-                SaldoInsuficiente = false;
+                tool.Escrever($"\n<@>Você está preste a pagar: <+Green>{Math.Round(valorInput, 2).ToString("C", CultureInfo.GetCultureInfo("pt-BR"))}</>\n");
+                tool.Escrever($"\n<@>Ao confirmar esse pagamento seu saldo restante será de <+Green>{Math.Round(operacao, 2).ToString("C", CultureInfo.GetCultureInfo("pt-BR"))}</>");
+
                 do
                 {
                     tool.Escrever(@$"
 
 <@>Deseja confirmar o pagamento? 
 
-<@><@>(S) - <+Green>Sim</>
-<@><@>(N) - <+Red>Não</> ");
+<@><@><+Green>[S] - Sim</>
+<@><@><+Red>[N] - Não</>");
 
-                opcaoConfirmar = Console.ReadKey(true);
-                
-                if(opcaoConfirmar.Key == ConsoleKey.S)
-                {
-                    Console.WriteLine($"Pagamento efetuado no valor de {operacao}");
-                    pagamentoEfetuado = true;
-                }
-                else if(opcaoConfirmar.Key == ConsoleKey.N)
-                {
-                    tool.Escrever("\n\nPagamento na modalidade Cartão de débito <+Red>não efetuada</>.");
-                    pagamentoEfetuado = false;
-                }
+                    opcaoConfirmar = Console.ReadKey(true);
+
+                    if (opcaoConfirmar.Key == ConsoleKey.S)
+                    {
+                        tool.Escrever("\n\n<=Green><$></>\n\n");
+                        tool.Progresso();
+                        tool.Escrever($"\n<@>Pagamento no valor de <+Green>{Math.Round(operacao, 2).ToString("C", CultureInfo.GetCultureInfo("pt-BR"))} efetuado com sucesso!</> Obrigado por utilizar o PayProject!");
+                        pagamentoEfetuado = true;
+                        saldo = operacao;
+                    }
+                    else if (opcaoConfirmar.Key == ConsoleKey.N)
+                    {
+                        tool.Escrever("\n\nPagamento na modalidade Cartão de débito <+Red>não efetuada</>.");
+
+                        tool.Escrever("\n\n<=Red><$></>");
+                        pagamentoEfetuado = false;
+                    }
 
                 }
-                while(opcaoConfirmar.Key != ConsoleKey.N && opcaoConfirmar.Key != ConsoleKey.S);
+                while (opcaoConfirmar.Key != ConsoleKey.N && opcaoConfirmar.Key != ConsoleKey.S);
             }
-            
-            
         }
-
-        // public float Depositar(float deposito)// Por causa da proteção do código, eu usei o if, dentro dele, determinei que Saldo = deposito, é importante determina um valor no "deposito" do "Program"
-        // {
-        //     if (deposito > 0)
-        //     {
-        //         saldo = deposito;
-        //         return saldo;
-        //     }
-        //     return 0;
-        // }
-        // Saldo do Debito determinado, deixa que o clienta determine o saldo 
     }
 }
