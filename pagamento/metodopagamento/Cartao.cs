@@ -9,12 +9,14 @@ namespace Metodo_Pagamento
 {
     public abstract class Cartao : Projeto_Backend_Senai.Pagamento
     {
-        Ferramentas escreva = new Ferramentas();
+        Ferramentas tool = new Ferramentas();
         // Declaração dos atributos da Classe abstrata Cartao
         public string Bandeira { get; set; }
         public string NumeroCartao { get; set; }
         public string Titular;
         public string Cvv { get; set; }
+
+        public bool cartaoCadastrado = false;
 
         // Declaração dos métodos da Classe Abstrata
         public abstract void Pagar(float valorInput);
@@ -23,121 +25,127 @@ namespace Metodo_Pagamento
         {
             Console.WriteLine(@$"
             
-            MENU DE CADASTRO DE CARTÃO CRÉDITO/DÉBITO:
-            ");
+        MENU DE CADASTRO DE CARTÃO CRÉDITO/DÉBITO:");
 
-//Menu para o usuário visualizar e selecionar a informação que deseja adicionar sobre a bandeira.
-        escreva.Escrever(@"
+            //Menu para o usuário visualizar e selecionar a informação que deseja adicionar sobre a bandeira.
+            tool.Escrever(@"
 <@>Qual a bandeira do seu cartão?
         
 <@><@>[1] - <+Blue>Visa</>
 <@><@>[2] - <+Red>Master</><+Yellow>Card</>
 <@><@>[3] - <=Red>Hipercard</>
-<@><@>[4] - <+Blue>Maes</><+Red>tro</>     
-        ");
+<@><@>[4] - <+Blue>Maes</><+Red>tro</>     ");
 
-        escreva.Escrever(@"
-        
-<=Green><$></>
-        
-        ");
+            tool.Escrever("\n\n<=Green><$></>");
 
-//Switch que vai derminar o valor que a variável Bandeira vai guardar.
-            escolhaBandeira: 
+        //Switch que vai derminar o valor que a variável Bandeira vai guardar.
+        escolhaBandeira:
             ConsoleKeyInfo escolhaBandeira = Console.ReadKey(true);
 
             switch (escolhaBandeira.Key)
             {
                 case ConsoleKey.D1:
-                Bandeira = "Visa";
-                break;
+                    Bandeira = "Visa";
+                    break;
 
                 case ConsoleKey.D2:
-                Bandeira = "MasterCard";
-                break;
+                    Bandeira = "MasterCard";
+                    break;
 
                 case ConsoleKey.D3:
-                Bandeira = "Elo";
-                break;
+                    Bandeira = "Elo";
+                    break;
 
                 case ConsoleKey.D4:
-                Bandeira = "HiperCard";
-                break;
-                    
+                    Bandeira = "HiperCard";
+                    break;
+
                 default:
-                escreva.Escrever("\n<+Red>Opção inválida</>, digite uma opção válida.");
-                
-                goto escolhaBandeira;
+                    tool.Escrever("\n\n<+Red>Opção inválida</>, digite uma opção válida.\n");
+                    tool.Escrever("\n<=Red><$></>");
+
+                    goto escolhaBandeira;
             }
-            
-//Validação para que o usuário só consiga digitar números e só será aceito se o usuário digitar 16 números.
-            escreva.Escrever($"\n<@>Digite o número do seu cartão (**** **** **** ****):\n");
+
+            //Validação para que o usuário só consiga digitar números e só será aceito se o usuário digitar 16 números.
+            tool.Escrever($"\n\n<@>Digite o número do seu cartão (**** **** **** ****):\n\n");
+
             do
             {
+                tool.Escrever("<@><@>");
                 NumeroCartao = Console.ReadLine();
 
                 if (!System.Text.RegularExpressions.Regex.IsMatch(NumeroCartao, "^[0-9]*$") || NumeroCartao.Length != 16)
                 {
-
-                    escreva.Escrever($"\nNúmero do cartão <+Red>inválido</>. Por favor, digite um número de cartão válido.\n");
-
+                    tool.Escrever($"\n<@>Número do cartão <+Red>inválido</>. Por favor, digite um número de cartão válido:\n\n");
                 }
 
-                else{
-                    escreva.Escrever("\n<@><@><@><+Green>Número do cartão aceito!</>\n");
+                else
+                {
+                    tool.Escrever("\n<@><@><+Green>Número do cartão aceito!</>\n");
                 }
             } while (NumeroCartao.Length != 16 || string.IsNullOrEmpty(NumeroCartao) || string.IsNullOrWhiteSpace(NumeroCartao) || !System.Text.RegularExpressions.Regex.IsMatch(NumeroCartao, "^[0-9]*$"));
 
 
-//Validação para que o usuário digite apenas letras, com um minimo de 8 caracteres.
-            escreva.Escrever($"\n<@>Digite o nome completo do titular do cartão (Mínimo de 8 caracteres):\n");
+            //Validação para que o usuário digite apenas letras, com um minimo de 8 caracteres.
+            tool.Escrever($"\n<@>Digite o nome completo do titular do cartão (Mínimo de 8 caracteres):\n\n");
+
 
             do
             {
-            Titular = Console.ReadLine();
+                tool.Escrever("<@><@>");
+                Titular = Console.ReadLine();
 
-            if (!Regex.IsMatch(Titular, @"^[a-zA-Z ]+$") || Titular.Length < 8 || string.IsNullOrEmpty(Titular) || string.IsNullOrWhiteSpace(Titular))
+                if (!Regex.IsMatch(Titular, @"^[a-zA-Z ]+$") || Titular.Length < 8 || string.IsNullOrEmpty(Titular) || string.IsNullOrWhiteSpace(Titular))
 
-            {
+                {
 
-           escreva.Escrever($"\nNome <+Red>inválido</>. Digite novamente\n");
+                    tool.Escrever($"\n<@>Nome <+Red>inválido</>. Digite novamente\n\n");
 
-            }
-            else{
+                }
+                else
+                {
 
-                escreva.Escrever($"\n<+Green>Nome do titular cadastrado com sucesso!</>\n");
-                break;
-            }
+                    tool.Escrever($"\n<@><@><+Green>Nome do titular cadastrado com sucesso!</>\n");
+                    break;
+                }
 
-            } while (Regex.IsMatch(Titular, @"^[a-zA-Z ]+$") || Titular.Length < 8);
+            } while (!Regex.IsMatch(Titular, @"^[a-zA-Z ]+$") || Titular.Length < 8);
 
 
-// Mesma validação do número do cartão, mas aqui só é aceito 3 números
-            Console.WriteLine($"\n        Digite o código de segurança do cartão:\n");
+            // Mesma validação do número do cartão, mas aqui só é aceito 3 números
+            tool.Escrever($"\n<@>Digite o código de segurança do cartão:\n");
 
             do
             {
+                tool.Escrever("\n<@><@>");
+                Cvv = Console.ReadLine();
 
-            Cvv = Console.ReadLine();
+                if (!System.Text.RegularExpressions.Regex.IsMatch(Cvv, "^[0-9]*$") || Cvv.Length != 3)
+                {
+                    tool.Escrever($"\n<@><@>Código de segurança <+Red>inválido</>. Por favor, digite o código válido.\n");
 
-            if (!System.Text.RegularExpressions.Regex.IsMatch(Cvv, "^[0-9]*$") || Cvv.Length != 3)
-            {
-                escreva.Escrever($"Código de segurança <+Red>inválido</>. Por favor, digite o código válido.\n");
-                
-            }
+                }
 
-            else{
-                escreva.Escrever("\n<+Green>Código de segurança válido!</>\n");
-            }
-                
+                else
+                {
+                    tool.Escrever("\n<@><@><+Green>Código de segurança válido!</>\n");
+                }
+
             } while (Cvv.Length != 3 || string.IsNullOrEmpty(Cvv) || string.IsNullOrWhiteSpace(Cvv) || !System.Text.RegularExpressions.Regex.IsMatch(Cvv, "^[0-9]*$"));
 
             String result = NumeroCartao.Substring(NumeroCartao.Length - 4);
 
-            Console.WriteLine($"\nCARTÃO DO(A) TITULAR {Titular} SALVO COM SUCESSO!\n");
+            tool.Escrever($"\n<=Green><$></>");
 
-            Console.WriteLine($"\nBandeira do cartão: {Bandeira}");
-            Console.WriteLine($"\nNúmero do cartão: **** **** **** {result}");
+            tool.Escrever($"\n\n<@><@>CARTÃO DO(A) TITULAR {Titular.ToUpper()} SALVO COM <+Green>SUCESSO</>!");
+
+            tool.Escrever($"\n\n<@><@><@>Bandeira do cartão: {Bandeira}");
+            tool.Escrever($"\n<@><@><@>Final do cartão: {result}");
+
+            tool.Escrever($"\n\n<=Green><$></>\n");
+
+            cartaoCadastrado = true;
 
             return "";
         }

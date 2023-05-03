@@ -126,18 +126,24 @@ do
             case ConsoleKey.D1:
                 tool.Escrever($"\n\n<@>Pagamento em Boleto Bancário selecionado.\n");
                 BankSlip.Registrar(Payment.Valor);
-                
+
                 ConcluirOperacao();
                 break;
             case ConsoleKey.D2:
-                Credit.SalvarCartao();
+                if (!Credit.cartaoCadastrado)
+                {
+                    Credit.SalvarCartao();
+                }
                 Credit.Pagar(Payment.Valor);
 
                 ConcluirOperacao();
                 break;
             case ConsoleKey.D3:
                 tool.Escrever($"\n\n<@>Pagamento em Cartão de Débito selecionado.");
-                Debit.SalvarCartao();
+                if (!Debit.cartaoCadastrado)
+                {
+                    Debit.SalvarCartao();
+                }
                 Debit.Pagar(Payment.Valor);
                 if (Debit.pagamentoEfetuado)
                 {
