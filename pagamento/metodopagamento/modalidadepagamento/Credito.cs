@@ -33,7 +33,7 @@ namespace Modalidade_Pagamento
                 {
                     Tools.Escrever(@$"
 
-<@>Deseja confirmar o pagamento de <+Green>{Math.Round(valorInput, 2).ToString("C", CultureInfo.GetCultureInfo("pt-BR"))}</> em <+Green>{Parcelas}x</> de <+Green>{Math.Round(ValorParcelas, 2).ToString("C", CultureInfo.GetCultureInfo("pt-BR"))}</>? 
+<@>Deseja confirmar o pagamento de <+Green>{Math.Round((ValorParcelas * Parcelas), 2).ToString("C", CultureInfo.GetCultureInfo("pt-BR"))}</> em <+Green>{Parcelas}x</> de <+Green>{Math.Round(ValorParcelas, 2).ToString("C", CultureInfo.GetCultureInfo("pt-BR"))}</>? 
 
 <@><@><+Green>[S] - Sim</>
 <@><@><+Red>[N] - Não</>
