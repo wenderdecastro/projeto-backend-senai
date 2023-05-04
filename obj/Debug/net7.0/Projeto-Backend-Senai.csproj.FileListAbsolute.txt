@@ -111,3 +111,18 @@ C:\Users\50849167825\Desktop\Projeto-Backend-Senai\obj\Debug\net7.0\Projeto-Back
 C:\Users\50849167825\Desktop\Projeto-Backend-Senai\obj\Debug\net7.0\ref\Projeto-Backend-Senai.dll
 >>>>>>> 3ad0ff8f945b88281c67c45417db6f8b581cd9eb
 >>>>>>> b510b0e96d775e13320d8412710ee10545dc1e6e
+C:\Users\57267874800\code\Projeto-Backend-Senai\bin\Debug\net7.0\Projeto-Backend-Senai.exe
+C:\Users\57267874800\code\Projeto-Backend-Senai\bin\Debug\net7.0\Projeto-Backend-Senai.deps.json
+C:\Users\57267874800\code\Projeto-Backend-Senai\bin\Debug\net7.0\Projeto-Backend-Senai.runtimeconfig.json
+C:\Users\57267874800\code\Projeto-Backend-Senai\bin\Debug\net7.0\Projeto-Backend-Senai.dll
+C:\Users\57267874800\code\Projeto-Backend-Senai\bin\Debug\net7.0\Projeto-Backend-Senai.pdb
+C:\Users\57267874800\code\Projeto-Backend-Senai\obj\Debug\net7.0\Projeto-Backend-Senai.csproj.AssemblyReference.cache
+C:\Users\57267874800\code\Projeto-Backend-Senai\obj\Debug\net7.0\Projeto-Backend-Senai.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\57267874800\code\Projeto-Backend-Senai\obj\Debug\net7.0\Projeto-Backend-Senai.AssemblyInfoInputs.cache
+C:\Users\57267874800\code\Projeto-Backend-Senai\obj\Debug\net7.0\Projeto-Backend-Senai.AssemblyInfo.cs
+C:\Users\57267874800\code\Projeto-Backend-Senai\obj\Debug\net7.0\Projeto-Backend-Senai.csproj.CoreCompileInputs.cache
+C:\Users\57267874800\code\Projeto-Backend-Senai\obj\Debug\net7.0\Projeto-Backend-Senai.dll
+C:\Users\57267874800\code\Projeto-Backend-Senai\obj\Debug\net7.0\refint\Projeto-Backend-Senai.dll
+C:\Users\57267874800\code\Projeto-Backend-Senai\obj\Debug\net7.0\Projeto-Backend-Senai.pdb
+C:\Users\57267874800\code\Projeto-Backend-Senai\obj\Debug\net7.0\Projeto-Backend-Senai.genruntimeconfig.cache
+C:\Users\57267874800\code\Projeto-Backend-Senai\obj\Debug\net7.0\ref\Projeto-Backend-Senai.dll

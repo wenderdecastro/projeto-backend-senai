@@ -16,6 +16,8 @@ namespace Metodo_Pagamento
         public string Titular { get; set; }
         public string Cvv { private get; set; }
 
+        public String FinalCartao { get; set; }
+
         public bool cartaoCadastrado = false;
 
         // Declaração dos métodos da Classe Abstrata
@@ -134,14 +136,14 @@ namespace Metodo_Pagamento
 
             } while (Cvv.Length != 3 || string.IsNullOrEmpty(Cvv) || string.IsNullOrWhiteSpace(Cvv) || !System.Text.RegularExpressions.Regex.IsMatch(Cvv, "^[0-9]*$"));
 
-            String result = NumeroCartao.Substring(NumeroCartao.Length - 4);
+            FinalCartao = NumeroCartao.Substring(NumeroCartao.Length - 4);
 
             Tools.Escrever($"\n<=Green><$></>");
 
             Tools.Escrever($"\n\n<@><@><@>CARTÃO DO(A) TITULAR {Titular.ToUpper()} SALVO COM <+Green>SUCESSO</>!");
 
             Tools.Escrever($"\n\n<@><@><@>Bandeira do cartão: {Bandeira}");
-            Tools.Escrever($"\n<@><@><@>Final do cartão: {result}");
+            Tools.Escrever($"\n<@><@><@>Final do cartão: {FinalCartao}");
             Tools.Escrever($"\n\n<@><@><@>Data do cadastro: {Data}");
 
             Tools.Escrever($"\n\n<=Green><$></>\n");

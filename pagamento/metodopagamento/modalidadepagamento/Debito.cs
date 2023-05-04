@@ -13,12 +13,11 @@ namespace Modalidade_Pagamento
         Pagamento Pay = new Pagamento();
         Ferramentas Tools = new Ferramentas();
         public bool pagamentoEfetuado = false;
-        public float saldo {get; private set;} = 500;
+        public float saldo { get; private set; } = 500;
         private ConsoleKeyInfo opcaoConfirmar;
         public override void Pagar(float valorInput)
         {
             float operacao = saldo - valorInput;
-            pagamentoEfetuado = false;
 
             if (valorInput > saldo)
             {
@@ -32,6 +31,9 @@ namespace Modalidade_Pagamento
 
                 do
                 {
+                    pagamentoEfetuado = false;
+
+
                     Tools.Escrever(@$"
 
 <@>Deseja confirmar o pagamento? 
@@ -47,18 +49,22 @@ namespace Modalidade_Pagamento
                         Tools.Progresso();
                         Tools.Escrever($"\n<@>Pagamento no valor de <+Green>{Math.Round(operacao, 2).ToString("C", CultureInfo.GetCultureInfo("pt-BR"))} efetuado com sucesso!</> Obrigado por utilizar o PayProject!");
                         pagamentoEfetuado = true;
+                        cartaoCadastrado = true;
                         saldo = operacao;
+                        break;
                     }
                     else if (opcaoConfirmar.Key == ConsoleKey.N)
                     {
-                        Tools.Escrever("\n\nPagamento na modalidade Cartão de débito <+Red>não efetuada</>.");
+                        Tools.Escrever("\n\n<@>Pagamento na modalidade Cartão de débito <+Red>não efetuada</>.");
 
                         Tools.Escrever("\n\n<=Red><$></>");
+                        cartaoCadastrado = true;
                         pagamentoEfetuado = false;
+                        break;
                     }
 
                 }
-                while (opcaoConfirmar.Key != ConsoleKey.N && opcaoConfirmar.Key != ConsoleKey.S);
+                while (opcaoConfirmar.Key != ConsoleKey.N || opcaoConfirmar.Key != ConsoleKey.S);
             }
         }
     }

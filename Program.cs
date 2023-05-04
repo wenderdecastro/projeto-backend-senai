@@ -44,7 +44,7 @@ void ConcluirOperacao()
         }
         else if (opcaoNovaOperacao.Key == ConsoleKey.N)
         {
-            Tools.Escrever("\n\nObrigado por utilizar o sistema de pagamentos do <+Green>Pay Project</>!");
+            Tools.Escrever("\n\n<@>Obrigado por utilizar o sistema de pagamentos do <+Green>Pay Project</>!");
 
             Tools.Escrever("\n\n<=Green><$></>"); // linha decorativa
 
@@ -132,7 +132,20 @@ do
                 }
                 break;
             case ConsoleKey.D2:
-                if (!Credit.cartaoCadastrado)
+                if (Credit.cartaoCadastrado == true || Debit.cartaoCadastrado == true)
+                {
+                    Tools.Escrever(@$"
+
+<@><@> A operação será feita no cartão:
+
+<@><@><@> Bandeira do cartão: {Credit.Bandeira}
+
+<@><@><@>Final do cartão: {Credit.FinalCartao} 
+
+<=Green><$></>
+");
+                }
+                else
                 {
                     Credit.SalvarCartao();
                 }
@@ -144,9 +157,24 @@ do
                 break;
             case ConsoleKey.D3:
                 Tools.Escrever($"\n\n<@>Pagamento em Cartão de Débito selecionado.");
-                if (!Debit.cartaoCadastrado)
+                if (Credit.cartaoCadastrado == true || Debit.cartaoCadastrado == true)
                 {
-                    Debit.SalvarCartao();
+                    Tools.Escrever(@$"
+
+<@><@>A operação será feita no cartão:
+
+<@><@><@>Bandeira do cartão: {Credit.Bandeira}
+
+<@><@><@>Final do cartão: {Credit.FinalCartao} 
+
+<=Green><$></>
+");
+
+
+                }
+                else
+                {
+                    Credit.SalvarCartao();
                 }
                 Debit.Pagar(Payment.Valor);
                 if (Debit.pagamentoEfetuado)
@@ -156,6 +184,8 @@ do
                 break;
             case ConsoleKey.D4:
                 fecharMenu = true;
+                Credit.cartaoCadastrado = false;
+                Debit.cartaoCadastrado = false;
                 Tools.Escrever($"\n\n<@><+Red>{Payment.Cancelar(true)}</>\n");
                 Tools.Escrever("\n<=Green><$></>");
                 break;
