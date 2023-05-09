@@ -11,7 +11,7 @@ Este é um projeto desenvolvido em C# para a disciplina de Programação Orienta
 * [Wender de Castro](https://github.com/wenderdecastro)
 
 ## Diagrama de classes UML
-![Diagrama UML](https://lh6.googleusercontent.com/fL_JtS8IWFST_pU2pqDl3FeR-kSXudc_Dl5IPAwzH0mUiCO5B720r8DxjlO9LulVcgqEF775SPnJ--o=w1903-h961)
+![Diagrama UML](https://i.ibb.co/1R9Wy62/image.png)
 
 ## Funcionalidades
 O programa tem um menu com as seguintes opções:
