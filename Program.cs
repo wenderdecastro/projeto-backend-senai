@@ -73,8 +73,8 @@ Console.WriteLine(@$"
                       |  $$$$$$/                               |  $$$$$$/                              
                        \______/                                 \______/                               
 ");
-
 Tools.Escrever("<=Green><$></>"); // linha decorativa
+Tools.BeepCompra();
 do
 {
     while (!inputValido)

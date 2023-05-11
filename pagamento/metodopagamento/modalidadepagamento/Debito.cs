@@ -47,6 +47,7 @@ namespace Modalidade_Pagamento
                     {
                         Tools.Escrever("\n\n<=Green><$></>\n\n");
                         Tools.Progresso();
+                        Tools.BeepCompra();
                         Tools.Escrever($"\n<@>Pagamento no valor de <+Green>{Math.Round(operacao, 2).ToString("C", CultureInfo.GetCultureInfo("pt-BR"))} efetuado com sucesso!</> Obrigado por utilizar o PayProject!");
                         pagamentoEfetuado = true;
                         cartaoCadastrado = true;

@@ -47,6 +47,7 @@ namespace Modalidade_Pagamento
                         Tools.Escrever("\n<=Green><$></>\n\n");
                         Tools.Escrever("<@>");
                         Tools.Progresso();
+                        Tools.BeepCompra();
                         Tools.Escrever($"\n<@><+Green>Pagamento efetuado com sucesso!</> Obrigado por utilizar o Pay Project!");
 
                         Tools.Escrever($"\n\n<@>Como já foi feito o cadastro do cartão, o valor será cobrado na proxima fatura.");

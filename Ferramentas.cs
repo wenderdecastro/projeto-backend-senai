@@ -8,7 +8,7 @@ namespace Projeto_Backend_Senai
     public class Ferramentas
     {
         // String para evitar a repetição de código
-        string linhaDecorativa = "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$";
+        public string linhaDecorativa = "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$";
         // Função para inserir cores de maneira mais facil no console
         public void Escrever(string msg)
         {
@@ -48,6 +48,12 @@ namespace Projeto_Backend_Senai
 
             // Pula uma linha
             Console.WriteLine();
+        }
+
+        public void BeepCompra(){
+            Console.Beep(1318, 300);
+            Console.Beep(1046, 400);  
+            Console.Beep(1396, 500);  
         }
     }
 }
