@@ -190,7 +190,7 @@ do
                 fecharMenu = true;
                 Credit.cartaoCadastrado = false;
                 Debit.cartaoCadastrado = false;
-                Tools.Escrever($"\n\n<@><+Red>{Payment.Cancelar(true)}</>\n");
+                Tools.Escrever($"\n\n<@><+Red>{Payment.Cancelar(true)}{Payment.Data}</>\n");
                 Tools.Escrever("\n<=Green><$></>");
                 break;
             case ConsoleKey.D0:
