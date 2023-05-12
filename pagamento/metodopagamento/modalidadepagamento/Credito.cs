@@ -108,9 +108,8 @@ namespace Modalidade_Pagamento
 
                 if (Parcelas == 1)
                 {
-
-                    ValorParcelas = this.Juros / this.Parcelas;
-                    Tools.Escrever($"\n\nPagamento à vista, não será aplicado Juros.");
+                    ValorParcelas = valorInput;
+                    Tools.Escrever($"\nPagamento à vista, não será aplicado Juros.");
                     ConfirmarPagamento();
                 }
                 else if (Parcelas <= 6)
