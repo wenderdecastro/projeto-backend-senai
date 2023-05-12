@@ -83,10 +83,16 @@ do
         Tools.Escrever($"<@>R$ <+Green>"); // forma de alinhar o input para fins estéticos
 
         string input = Console.ReadLine(); Tools.Escrever($"</>");
-        if (float.TryParse(input, out Payment.Valor) && Payment.Valor > 0)
+        if (float.TryParse(input, out Payment.Valor) && (Payment.Valor > 0 && Payment.Valor < 250000000))
         {
             Tools.Escrever($"\n<@><@><+Green>Valor aceito!</> Você está prestes a pagar <+Green>{Math.Round(Payment.Valor, 2).ToString("C", CultureInfo.GetCultureInfo("pt-BR"))}</>.\n");
             inputValido = true;
+        }
+        else if (Payment.Valor > 250000000)
+        {
+            Tools.Escrever("\n<@><+Red>Valor Invalido!</> Nosso valor máximo para pagamentos é de R$ 250.000.000,00.");
+            Tools.Escrever("\n\n<=Red><$></>");
+            inputValido = false;
         }
         else
         {
